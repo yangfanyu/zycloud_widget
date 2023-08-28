@@ -14,12 +14,14 @@ final coreVersionMap = {
   'bson': '',
   'shelf_easy': '',
   'zycloud_client': '',
+  'zycloud_widget': '',
 };
 String get httpVersion => coreVersionMap['http']!;
 String get httpParserVersion => coreVersionMap['http_parser']!;
 String get bsonVersion => coreVersionMap['bson']!;
 String get shelfEasyVersion => coreVersionMap['shelf_easy']!;
 String get zycloudClientVersion => coreVersionMap['zycloud_client']!;
+String get zycloudWidgetVersion => coreVersionMap['zycloud_widget']!;
 //全部平台扩展库
 final extendFullVersionMap = {
   'audioplayers': '',
@@ -70,70 +72,78 @@ String get pluginPlatformInterfaceVersion => platformVersionMap['plugin_platform
 
 void main(List<String> arguments) {
   final libraryName = arguments.isEmpty ? 'zywidget' : arguments.first;
-  initDependenciesVersion(); //初始化版本
+  final rootFolder = '${Directory.current.path}/lib/src';
+  _initDependenciesVersion(); //初始化版本
   switch (libraryName) {
     case 'dart':
-      generateLibraryForDart();
+      _generateLibraryForCore$Dart(libraryName, rootFolder);
       break;
     case 'dartui':
-      generateLibraryForDartUI();
+      _generateLibraryForCore$DartUI(libraryName, rootFolder);
       break;
     case 'flutter':
-      generateLibraryForFlutter();
+      _generateLibraryForCore$Flutter(libraryName, rootFolder);
       break;
     case 'zyclient':
-      generateLibraryForZyClient();
+      _generateLibraryForCore$ZyClient(libraryName, rootFolder);
       break;
     case 'zywidget':
-      generateLibraryForZyWidget();
+      _generateLibraryForCore$ZyWidget(libraryName, rootFolder);
+      break;
+    case 'core':
+      _generateLibraryForCore$Dart('dart', rootFolder);
+      _generateLibraryForCore$DartUI('dartui', rootFolder);
+      _generateLibraryForCore$Flutter('flutter', rootFolder);
+      _generateLibraryForCore$ZyClient('zyclient', rootFolder);
+      _generateLibraryForCore$ZyWidget('zywidget', rootFolder);
       break;
 
     ///extend_full
     case 'audioplayers':
-      generateLibraryForExtendFull$Audioplayers(libraryName);
+      _generateLibraryForExtendFull$Audioplayers(libraryName, rootFolder);
       break;
     case 'flutter_linkify':
-      generateLibraryForExtendFull$FlutterLinkify(libraryName);
+      _generateLibraryForExtendFull$FlutterLinkify(libraryName, rootFolder);
       break;
     case 'flutter_slidable':
-      generateLibraryForExtendFull$FlutterSlidable(libraryName);
+      _generateLibraryForExtendFull$FlutterSlidable(libraryName, rootFolder);
       break;
     case 'flutter_vector_icons':
-      generateLibraryForExtendFull$FlutterVectorIcons(libraryName);
+      _generateLibraryForExtendFull$FlutterVectorIcons(libraryName, rootFolder);
       break;
     case 'flutter_webrtc':
-      generateLibraryForExtendFull$FlutterWebrtc(libraryName);
+      _generateLibraryForExtendFull$FlutterWebrtc(libraryName, rootFolder);
       break;
     case 'loading_indicator':
-      generateLibraryForExtendFull$LoadingIndicator(libraryName);
+      _generateLibraryForExtendFull$LoadingIndicator(libraryName, rootFolder);
       break;
     case 'scrollable_positioned_list':
-      generateLibraryForExtendFull$ScrollablePositionedList(libraryName);
+      _generateLibraryForExtendFull$ScrollablePositionedList(libraryName, rootFolder);
       break;
     case 'url_launcher':
-      generateLibraryForExtendFull$UrlLauncher(libraryName);
+      _generateLibraryForExtendFull$UrlLauncher(libraryName, rootFolder);
       break;
     case 'extend_full':
-      generateLibraryForExtendFull$Audioplayers('audioplayers');
-      generateLibraryForExtendFull$FlutterLinkify('flutter_linkify');
-      generateLibraryForExtendFull$FlutterSlidable('flutter_slidable');
-      generateLibraryForExtendFull$FlutterVectorIcons('flutter_vector_icons');
-      generateLibraryForExtendFull$FlutterWebrtc('flutter_webrtc');
-      generateLibraryForExtendFull$LoadingIndicator('loading_indicator');
-      generateLibraryForExtendFull$ScrollablePositionedList('scrollable_positioned_list');
-      generateLibraryForExtendFull$UrlLauncher('url_launcher');
+      _generateLibraryForExtendFull$Audioplayers('audioplayers', rootFolder);
+      _generateLibraryForExtendFull$FlutterLinkify('flutter_linkify', rootFolder);
+      _generateLibraryForExtendFull$FlutterSlidable('flutter_slidable', rootFolder);
+      _generateLibraryForExtendFull$FlutterVectorIcons('flutter_vector_icons', rootFolder);
+      _generateLibraryForExtendFull$FlutterWebrtc('flutter_webrtc', rootFolder);
+      _generateLibraryForExtendFull$LoadingIndicator('loading_indicator', rootFolder);
+      _generateLibraryForExtendFull$ScrollablePositionedList('scrollable_positioned_list', rootFolder);
+      _generateLibraryForExtendFull$UrlLauncher('url_launcher', rootFolder);
       break;
 
     ///extend_part
     case 'permission_handler':
-      generateLibraryForExtendPart$PermissionHandler(libraryName);
+      _generateLibraryForExtendPart$PermissionHandler(libraryName, rootFolder);
       break;
     case 'webview_flutter':
-      generateLibraryForExtendPart$WebviewFlutter(libraryName);
+      _generateLibraryForExtendPart$WebviewFlutter(libraryName, rootFolder);
       break;
     case 'extend_part':
-      generateLibraryForExtendPart$PermissionHandler('permission_handler');
-      generateLibraryForExtendPart$WebviewFlutter('webview_flutter');
+      _generateLibraryForExtendPart$PermissionHandler('permission_handler', rootFolder);
+      _generateLibraryForExtendPart$WebviewFlutter('webview_flutter', rootFolder);
       break;
     default:
       throw ('Unsupport libraryName $libraryName');
@@ -142,7 +152,7 @@ void main(List<String> arguments) {
   //grep -n "GameFactory" -r path
 }
 
-void initDependenciesVersion() {
+void _initDependenciesVersion() {
   final logger = EasyLogger();
   final file = File('pubspec.lock');
   final pubspecLock = file.readAsStringSync().loadPubspecLockFromYaml();
@@ -175,15 +185,17 @@ void initDependenciesVersion() {
   logger.logInfo(['platformVersionMap =>', encoder.convert(platformVersionMap)]);
 }
 
-void generateLibraryForDart() {
+void _generateLibraryForCore$Dart(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge',
+      absFolder: '$rootFolder/bridge/core',
     ),
   );
   coder.generateVmLibraries(
-    outputFile: 'dart_library',
+    outputFile: '${libraryName}_library',
+    className: '${libraryName.toPascalCase}Library',
+    classDesc: '$libraryName库桥接类',
     importList: [
       'dart:async',
       'dart:collection',
@@ -195,8 +207,6 @@ void generateLibraryForDart() {
       'dart:io',
       'dart:isolate',
     ],
-    className: 'DartLibrary',
-    classDesc: 'Dart核心库桥接类',
     libraryPaths: [
       '$flutterHome/bin/cache/dart-sdk/lib/async',
       '$flutterHome/bin/cache/dart-sdk/lib/collection',
@@ -218,20 +228,20 @@ void generateLibraryForDart() {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForDartUI() {
+void _generateLibraryForCore$DartUI(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge',
+      absFolder: '$rootFolder/bridge/core',
     ),
   );
   coder.generateVmLibraries(
-    outputFile: 'dartui_library',
+    outputFile: '${libraryName}_library',
+    className: '${libraryName.toPascalCase}Library',
+    classDesc: '$libraryName库桥接类',
     importList: [
       'dart:ui',
     ],
-    className: 'DartUILibrary',
-    classDesc: 'Dart的UI库桥接类，与Flutter库分开避免作用域冲突',
     libraryPaths: [
       '$flutterHome/bin/cache/pkg/sky_engine/lib/ui',
     ],
@@ -255,15 +265,17 @@ void generateLibraryForDartUI() {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForFlutter() {
+void _generateLibraryForCore$Flutter(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge',
+      absFolder: '$rootFolder/bridge/core',
     ),
   );
   coder.generateVmLibraries(
-    outputFile: 'flutter_library',
+    outputFile: '${libraryName}_library',
+    className: '${libraryName.toPascalCase}Library',
+    classDesc: '$libraryName库桥接类',
     importList: [
       'import \'dart:ui\' as ui show BoxWidthStyle, BoxHeightStyle;',
       // 'package:flutter/animation.dart', //重复的导入项
@@ -280,8 +292,6 @@ void generateLibraryForFlutter() {
       // 'package:flutter/widgets.dart', //重复的导入项
       'package:flutter_localizations/flutter_localizations.dart',
     ],
-    className: 'FlutterLibrary',
-    classDesc: 'Flutter完整库桥接类',
     libraryPaths: [
       '$flutterHome/packages/flutter/lib/src/animation',
       '$flutterHome/packages/flutter/lib/src/cupertino',
@@ -313,21 +323,20 @@ void generateLibraryForFlutter() {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForZyClient() {
+void _generateLibraryForCore$ZyClient(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge',
+      absFolder: '$rootFolder/bridge/core',
     ),
   );
-
   coder.generateVmLibraries(
-    outputFile: 'zyclient_library',
+    outputFile: '${libraryName}_library',
+    className: '${libraryName.toPascalCase}Library',
+    classDesc: '$libraryName库桥接类',
     importList: [
       'package:zycloud_client/zycloud_client.dart',
     ],
-    className: 'ZyClientLibrary',
-    classDesc: 'ZyCloud网络客户端库桥接类',
     libraryPaths: [
       '$machineHome/.pub-cache/hosted/pub.dev/$httpVersion/lib',
       '$machineHome/.pub-cache/hosted/pub.dev/$httpParserVersion/lib',
@@ -377,89 +386,53 @@ void generateLibraryForZyClient() {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForZyWidget() {
+void _generateLibraryForCore$ZyWidget(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge',
+      absFolder: '$rootFolder/bridge/core',
     ),
   );
   coder.generateVmLibraries(
-    outputFile: 'zywidget_library',
+    outputFile: '${libraryName}_library',
+    className: '${libraryName.toPascalCase}Library',
+    classDesc: '$libraryName库桥接类',
     importList: [
       'package:flutter/material.dart',
-      //launch
-      '../launch/zy_app.dart',
-      '../launch/zy_draw.dart',
-      '../launch/zy_page.dart',
-      '../launch/zy_view.dart',
-      '../launch/zy_watch.dart',
-      '../launch/zy_window.dart',
-      //widget
-      '../widget/zy_avator.dart',
-      '../widget/zy_badge.dart',
-      '../widget/zy_border.dart',
-      '../widget/zy_button.dart',
-      '../widget/zy_dialog.dart',
-      '../widget/zy_divider.dart',
-      '../widget/zy_editor.dart',
-      '../widget/zy_emojis.dart',
-      '../widget/zy_flexbox.dart',
-      '../widget/zy_freebox.dart',
-      '../widget/zy_image.dart',
-      '../widget/zy_letters.dart',
-      '../widget/zy_listtile.dart',
-      '../widget/zy_loading.dart',
-      '../widget/zy_picture.dart',
-      '../widget/zy_qrcode.dart',
-      '../widget/zy_qrscan.dart',
-      '../widget/zy_sheet.dart',
-      '../widget/zy_stroke_text.dart',
-      //device
-      '../device/zy_device.dart',
-      '../device/zy_service.dart',
-      '../device/zy_storage.dart',
-      //engine
-      '../engine/zy_anchor.dart',
-      '../engine/zy_merger.dart',
-      '../engine/zy_model.dart',
-      '../engine/zy_sound.dart',
-      '../engine/zy_sprite_image.dart',
-      '../engine/zy_sprite_label.dart',
-      '../engine/zy_sprite_layer.dart',
-      '../engine/zy_sprite_shape.dart',
-      '../engine/zy_sprite_sheet.dart',
-      '../engine/zy_sprite_state.dart',
-      '../engine/zy_sprite_style.dart',
-      '../engine/zy_sprite.dart',
-      '../engine/zy_texture_widget.dart',
-      '../engine/zy_texture.dart',
-      '../engine/zy_world.dart',
+      'package:zycloud_widget/zycloud_widget.dart',
     ],
-    className: 'ZyWidgetLibrary',
-    classDesc: 'ZyCloud小部件封装库桥接类',
-    libraryPaths: [
-      '${Directory.current.path}/lib/src/launch',
-      '${Directory.current.path}/lib/src/widget',
-      '${Directory.current.path}/lib/src/device',
-      '${Directory.current.path}/lib/src/engine',
-    ],
+    libraryPaths: zycloudWidgetVersion.isEmpty
+        ? [
+            '${Directory.current.path}/lib/',
+          ]
+        : [
+            '$machineHome/.pub-cache/hosted/pub.dev/$zycloudWidgetVersion/lib/',
+          ],
     privatePaths: [
       '$flutterHome/bin/cache/dart-sdk/lib',
       '$flutterHome/bin/cache/pkg/sky_engine/lib',
       '$flutterHome/packages/flutter/lib',
-      '$machineHome/.pub-cache/hosted/pub.dev/$shelfEasyVersion/lib/src/db/db_base.dart',
-      '$machineHome/.pub-cache/hosted/pub.dev/$shelfEasyVersion/lib/src/vm/vm_base.dart',
+      '$machineHome/.pub-cache/hosted/pub.dev/$shelfEasyVersion/lib',
     ],
+    //不需要生成下列文件夹的内容
+    ignoreIssuePaths: zycloudWidgetVersion.isEmpty
+        ? [
+            '${Directory.current.path}/lib/src/assets',
+            '${Directory.current.path}/lib/src/bridge',
+          ]
+        : [
+            '$machineHome/.pub-cache/hosted/pub.dev/$zycloudWidgetVersion/lib/src/assets',
+            '$machineHome/.pub-cache/hosted/pub.dev/$zycloudWidgetVersion/lib/src/bridge',
+          ],
   );
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$Audioplayers(String libraryName) {
+void _generateLibraryForExtendFull$Audioplayers(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -502,11 +475,11 @@ void generateLibraryForExtendFull$Audioplayers(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$FlutterLinkify(String libraryName) {
+void _generateLibraryForExtendFull$FlutterLinkify(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -532,11 +505,11 @@ void generateLibraryForExtendFull$FlutterLinkify(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$FlutterSlidable(String libraryName) {
+void _generateLibraryForExtendFull$FlutterSlidable(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -589,11 +562,11 @@ void generateLibraryForExtendFull$FlutterSlidable(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$FlutterVectorIcons(String libraryName) {
+void _generateLibraryForExtendFull$FlutterVectorIcons(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -613,11 +586,11 @@ void generateLibraryForExtendFull$FlutterVectorIcons(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$FlutterWebrtc(String libraryName) {
+void _generateLibraryForExtendFull$FlutterWebrtc(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -686,11 +659,11 @@ void generateLibraryForExtendFull$FlutterWebrtc(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$LoadingIndicator(String libraryName) {
+void _generateLibraryForExtendFull$LoadingIndicator(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -719,11 +692,11 @@ void generateLibraryForExtendFull$LoadingIndicator(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$ScrollablePositionedList(String libraryName) {
+void _generateLibraryForExtendFull$ScrollablePositionedList(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -757,11 +730,11 @@ void generateLibraryForExtendFull$ScrollablePositionedList(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendFull$UrlLauncher(String libraryName) {
+void _generateLibraryForExtendFull$UrlLauncher(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_full',
+      absFolder: '$rootFolder/bridge/extend_full',
     ),
   );
   coder.generateVmLibraries(
@@ -795,11 +768,11 @@ void generateLibraryForExtendFull$UrlLauncher(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendPart$PermissionHandler(String libraryName) {
+void _generateLibraryForExtendPart$PermissionHandler(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_part',
+      absFolder: '$rootFolder/bridge/extend_part',
     ),
   );
   coder.generateVmLibraries(
@@ -835,11 +808,11 @@ void generateLibraryForExtendPart$PermissionHandler(String libraryName) {
   coder.logVmLibrarydErrors();
 }
 
-void generateLibraryForExtendPart$WebviewFlutter(String libraryName) {
+void _generateLibraryForExtendPart$WebviewFlutter(String libraryName, String rootFolder) {
   final coder = EasyCoder(
     config: EasyCoderConfig(
       logLevel: EasyLogLevel.debug,
-      absFolder: '${Directory.current.path}/lib/src/bridge/extend_part',
+      absFolder: '$rootFolder/bridge/extend_part',
     ),
   );
   coder.generateVmLibraries(

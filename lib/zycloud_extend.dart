@@ -1,6 +1,6 @@
 library zycloud_extend;
 
-//zycloud_core
+//core
 export 'package:shelf_easy/shelf_easy.dart';
 export 'package:zycloud_client/zycloud_client.dart';
 

@@ -32,4 +32,3 @@ build/
 # 非自动生成
 .flutter-plugins
 .flutter-plugins-dependencies
-test/test_db/
