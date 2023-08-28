@@ -1,6 +1,6 @@
 name: zycloud_widget
 description: Flutter widget library for ZyCloud service.
-version: 1.0.0
+version: 1.0.2
 homepage: https://github.com/yangfanyu/zycloud_widget
 
 environment:
@@ -85,6 +85,20 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
+  plugin:
+    platforms:
+      android:
+        default_package: zycloud_widget
+      ios:
+        default_package: zycloud_widget
+      linux:
+        default_package: zycloud_widget
+      macos:
+        default_package: zycloud_widget
+      windows:
+        default_package: zycloud_widget
+      web:
+        default_package: zycloud_widget
 
   # To add assets to your package, add an assets section, like this:
   # assets:
