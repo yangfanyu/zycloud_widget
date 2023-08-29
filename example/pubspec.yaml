@@ -30,7 +30,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-    
+  
+  shelf_easy: ^3.0.0
+  zycloud_client: ^1.0.0
   zycloud_widget:
     path: ../
 
