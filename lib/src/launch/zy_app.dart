@@ -44,7 +44,7 @@ class ZyApp extends StatefulWidget {
         EasyLogger(
           logLevel: logLevel,
           logTag: '${ZyDeviceInfo.deviceType.name}-$widgetName',
-          logger: ZyDeviceInfo.isIOS && ZyDeviceInfo.isPhysicalDevice ? EasyLogger.stdoutLogger : EasyLogger.printLogger,
+          logger: bestConsoleLogger,
         );
     _logLifecycle = logLifecycle;
     _logRouteStack = logRouteStack;
@@ -52,6 +52,9 @@ class ZyApp extends StatefulWidget {
 
   @override
   State<ZyApp> createState() => _ZyAppState();
+
+  ///志输出到控制台的推荐方法
+  static void Function(EasyLogger, String, EasyLogLevel)? get bestConsoleLogger => ZyDeviceInfo.isIOS && ZyDeviceInfo.isPhysicalDevice ? EasyLogger.stdoutLogger : EasyLogger.printLogger;
 
   ///日志的输出器
   static EasyLogger? _logger;

@@ -52,15 +52,69 @@ class FlutterWebrtcLibrary {
     },
   );
 
+  ///class AndroidAudioAttributesContentType
+  static final classAndroidAudioAttributesContentType = VmClass<AndroidAudioAttributesContentType>(
+    identifier: 'AndroidAudioAttributesContentType',
+    superclassNames: ['Object', 'Enum'],
+    externalProxyMap: {
+      'movie': VmProxy(identifier: 'movie', externalStaticPropertyReader: () => AndroidAudioAttributesContentType.movie),
+      'music': VmProxy(identifier: 'music', externalStaticPropertyReader: () => AndroidAudioAttributesContentType.music),
+      'sonification': VmProxy(identifier: 'sonification', externalStaticPropertyReader: () => AndroidAudioAttributesContentType.sonification),
+      'speech': VmProxy(identifier: 'speech', externalStaticPropertyReader: () => AndroidAudioAttributesContentType.speech),
+      'unknown': VmProxy(identifier: 'unknown', externalStaticPropertyReader: () => AndroidAudioAttributesContentType.unknown),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.hashCode),
+      'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.index),
+      'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.name),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.toString),
+      'value': VmProxy(identifier: 'value', externalInstancePropertyReader: (AndroidAudioAttributesContentType instance) => instance.value),
+    },
+  );
+
+  ///class AndroidAudioAttributesUsageType
+  static final classAndroidAudioAttributesUsageType = VmClass<AndroidAudioAttributesUsageType>(
+    identifier: 'AndroidAudioAttributesUsageType',
+    superclassNames: ['Object', 'Enum'],
+    externalProxyMap: {
+      'alarm': VmProxy(identifier: 'alarm', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.alarm),
+      'assistanceAccessibility': VmProxy(identifier: 'assistanceAccessibility', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.assistanceAccessibility),
+      'assistanceNavigationGuidance': VmProxy(identifier: 'assistanceNavigationGuidance', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.assistanceNavigationGuidance),
+      'assistanceSonification': VmProxy(identifier: 'assistanceSonification', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.assistanceSonification),
+      'assistant': VmProxy(identifier: 'assistant', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.assistant),
+      'game': VmProxy(identifier: 'game', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.game),
+      'media': VmProxy(identifier: 'media', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.media),
+      'notification': VmProxy(identifier: 'notification', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.notification),
+      'notificationEvent': VmProxy(identifier: 'notificationEvent', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.notificationEvent),
+      'notificationRingtone': VmProxy(identifier: 'notificationRingtone', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.notificationRingtone),
+      'unknown': VmProxy(identifier: 'unknown', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.unknown),
+      'voiceCommunication': VmProxy(identifier: 'voiceCommunication', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.voiceCommunication),
+      'voiceCommunicationSignalling': VmProxy(identifier: 'voiceCommunicationSignalling', externalStaticPropertyReader: () => AndroidAudioAttributesUsageType.voiceCommunicationSignalling),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.hashCode),
+      'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.index),
+      'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.name),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.toString),
+      'value': VmProxy(identifier: 'value', externalInstancePropertyReader: (AndroidAudioAttributesUsageType instance) => instance.value),
+    },
+  );
+
   ///class AndroidAudioConfiguration
   static final classAndroidAudioConfiguration = VmClass<AndroidAudioConfiguration>(
     identifier: 'AndroidAudioConfiguration',
     superclassNames: ['Object'],
     externalProxyMap: {
       'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => AndroidAudioConfiguration.new),
+      'communication': VmProxy(identifier: 'communication', externalStaticPropertyReader: () => AndroidAudioConfiguration.communication),
+      'media': VmProxy(identifier: 'media', externalStaticPropertyReader: () => AndroidAudioConfiguration.media),
+      'androidAudioAttributesContentType': VmProxy(identifier: 'androidAudioAttributesContentType', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioAttributesContentType),
+      'androidAudioAttributesUsageType': VmProxy(identifier: 'androidAudioAttributesUsageType', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioAttributesUsageType),
       'androidAudioFocusMode': VmProxy(identifier: 'androidAudioFocusMode', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioFocusMode),
       'androidAudioMode': VmProxy(identifier: 'androidAudioMode', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioMode),
+      'androidAudioStreamType': VmProxy(identifier: 'androidAudioStreamType', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioStreamType),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.hashCode),
+      'manageAudioFocus': VmProxy(identifier: 'manageAudioFocus', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.manageAudioFocus),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.noSuchMethod),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.runtimeType),
       'toMap': VmProxy(identifier: 'toMap', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.toMap),
@@ -77,7 +131,6 @@ class FlutterWebrtcLibrary {
       'gainTransient': VmProxy(identifier: 'gainTransient', externalStaticPropertyReader: () => AndroidAudioFocusMode.gainTransient),
       'gainTransientExclusive': VmProxy(identifier: 'gainTransientExclusive', externalStaticPropertyReader: () => AndroidAudioFocusMode.gainTransientExclusive),
       'gainTransientMayDuck': VmProxy(identifier: 'gainTransientMayDuck', externalStaticPropertyReader: () => AndroidAudioFocusMode.gainTransientMayDuck),
-      'loss': VmProxy(identifier: 'loss', externalStaticPropertyReader: () => AndroidAudioFocusMode.loss),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioFocusMode instance) => instance.hashCode),
       'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (AndroidAudioFocusMode instance) => instance.index),
       'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (AndroidAudioFocusMode instance) => instance.name),
@@ -105,6 +158,29 @@ class FlutterWebrtcLibrary {
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.runtimeType),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.toString),
       'value': VmProxy(identifier: 'value', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.value),
+    },
+  );
+
+  ///class AndroidAudioStreamType
+  static final classAndroidAudioStreamType = VmClass<AndroidAudioStreamType>(
+    identifier: 'AndroidAudioStreamType',
+    superclassNames: ['Object', 'Enum'],
+    externalProxyMap: {
+      'accessibility': VmProxy(identifier: 'accessibility', externalStaticPropertyReader: () => AndroidAudioStreamType.accessibility),
+      'alarm': VmProxy(identifier: 'alarm', externalStaticPropertyReader: () => AndroidAudioStreamType.alarm),
+      'dtmf': VmProxy(identifier: 'dtmf', externalStaticPropertyReader: () => AndroidAudioStreamType.dtmf),
+      'music': VmProxy(identifier: 'music', externalStaticPropertyReader: () => AndroidAudioStreamType.music),
+      'notification': VmProxy(identifier: 'notification', externalStaticPropertyReader: () => AndroidAudioStreamType.notification),
+      'ring': VmProxy(identifier: 'ring', externalStaticPropertyReader: () => AndroidAudioStreamType.ring),
+      'system': VmProxy(identifier: 'system', externalStaticPropertyReader: () => AndroidAudioStreamType.system),
+      'voiceCall': VmProxy(identifier: 'voiceCall', externalStaticPropertyReader: () => AndroidAudioStreamType.voiceCall),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.hashCode),
+      'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.index),
+      'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.name),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.toString),
+      'value': VmProxy(identifier: 'value', externalInstancePropertyReader: (AndroidAudioStreamType instance) => instance.value),
     },
   );
 
@@ -1304,9 +1380,12 @@ class FlutterWebrtcLibrary {
   static final libraryClassList = <VmClass>[
     classAdapterType,
     classAlgorithm,
+    classAndroidAudioAttributesContentType,
+    classAndroidAudioAttributesUsageType,
     classAndroidAudioConfiguration,
     classAndroidAudioFocusMode,
     classAndroidAudioMode,
+    classAndroidAudioStreamType,
     classAndroidNativeAudioManagement,
     classAudioOutputOptions,
     classDesktopCapturer,

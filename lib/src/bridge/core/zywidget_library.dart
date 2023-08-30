@@ -43,6 +43,7 @@ class ZywidgetLibrary {
     superclassNames: ['Object', 'Diagnosticable', 'DiagnosticableTree', 'Widget', 'StatefulWidget'],
     externalProxyMap: {
       'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => ZyApp.new, externalStaticFunctionCaller: ({key, widgetName = 'ZyApp', localAppBuilder, remoteAppBuilder, remoteCodeLoading, remoteCodeFetcher, logger, logLevel, logLifecycle = false, logRouteStack = false}) => ZyApp.new(key: key, widgetName: widgetName, localAppBuilder: () => localAppBuilder(), remoteAppBuilder: remoteAppBuilder, remoteCodeLoading: remoteCodeLoading == null ? null : (b0, b1) => remoteCodeLoading(b0, b1), remoteCodeFetcher: (b0) => remoteCodeFetcher(b0), logger: logger, logLevel: logLevel, logLifecycle: logLifecycle, logRouteStack: logRouteStack)),
+      'bestConsoleLogger': VmProxy(identifier: 'bestConsoleLogger', externalStaticPropertyReader: () => ZyApp.bestConsoleLogger),
       'canPop': VmProxy(identifier: 'canPop', externalStaticPropertyReader: () => ZyApp.canPop),
       'doWhile': VmProxy(identifier: 'doWhile', externalStaticPropertyReader: () => ZyApp.doWhile, externalStaticFunctionCaller: (a0) => ZyApp.doWhile(() => a0())),
       'indexWhere': VmProxy(identifier: 'indexWhere', externalStaticPropertyReader: () => ZyApp.indexWhere, externalStaticFunctionCaller: (a0, {first = true}) => ZyApp.indexWhere((b0) => a0(b0), first: first)),
