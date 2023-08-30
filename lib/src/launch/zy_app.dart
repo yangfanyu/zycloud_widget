@@ -54,7 +54,7 @@ class ZyApp extends StatefulWidget {
   State<ZyApp> createState() => _ZyAppState();
 
   ///志输出到控制台的推荐方法
-  static void Function(EasyLogger, String, EasyLogLevel)? get bestConsoleLogger => ZyDeviceInfo.isIOS && ZyDeviceInfo.isPhysicalDevice ? EasyLogger.stdoutLogger : EasyLogger.printLogger;
+  static void Function(EasyLogger, String, EasyLogLevel) get bestConsoleLogger => ZyDeviceInfo.isIOS && ZyDeviceInfo.isPhysicalDevice ? EasyLogger.stdoutLogger : EasyLogger.printLogger;
 
   ///日志的输出器
   static EasyLogger? _logger;
