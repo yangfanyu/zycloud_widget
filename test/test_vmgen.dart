@@ -647,6 +647,8 @@ void _generateLibraryForExtendFull$FlutterWebrtc(String libraryName, String root
         //hide的类在原生环境下实际上是继承自webrtc_interface的同名类，所以这里去掉无用的同名类
         'MediaDevices', //对类的属性无任何影响，还是写上吧
         'MediaRecorder',
+        //与audioplayers库冲突
+        'AndroidAudioMode',
       ],
       '$machineHome/.pub-cache/hosted/pub.dev/$webrtcInterfaceVersion/lib': [
         // 'MediaDevices',

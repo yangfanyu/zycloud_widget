@@ -141,26 +141,6 @@ class FlutterWebrtcLibrary {
     },
   );
 
-  ///class AndroidAudioMode
-  static final classAndroidAudioMode = VmClass<AndroidAudioMode>(
-    identifier: 'AndroidAudioMode',
-    superclassNames: ['Object', 'Enum'],
-    externalProxyMap: {
-      'callScreening': VmProxy(identifier: 'callScreening', externalStaticPropertyReader: () => AndroidAudioMode.callScreening),
-      'inCall': VmProxy(identifier: 'inCall', externalStaticPropertyReader: () => AndroidAudioMode.inCall),
-      'inCommunication': VmProxy(identifier: 'inCommunication', externalStaticPropertyReader: () => AndroidAudioMode.inCommunication),
-      'normal': VmProxy(identifier: 'normal', externalStaticPropertyReader: () => AndroidAudioMode.normal),
-      'ringtone': VmProxy(identifier: 'ringtone', externalStaticPropertyReader: () => AndroidAudioMode.ringtone),
-      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.hashCode),
-      'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.index),
-      'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.name),
-      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.noSuchMethod),
-      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.runtimeType),
-      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.toString),
-      'value': VmProxy(identifier: 'value', externalInstancePropertyReader: (AndroidAudioMode instance) => instance.value),
-    },
-  );
-
   ///class AndroidAudioStreamType
   static final classAndroidAudioStreamType = VmClass<AndroidAudioStreamType>(
     identifier: 'AndroidAudioStreamType',
@@ -1384,7 +1364,6 @@ class FlutterWebrtcLibrary {
     classAndroidAudioAttributesUsageType,
     classAndroidAudioConfiguration,
     classAndroidAudioFocusMode,
-    classAndroidAudioMode,
     classAndroidAudioStreamType,
     classAndroidNativeAudioManagement,
     classAudioOutputOptions,
