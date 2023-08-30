@@ -1,3 +1,7 @@
+## 1.0.10
+
+- Optimize ZyApp’s reassemble logic.
+  
 ## 1.0.9
 
 - Solved the problem of AndroidAudioModes class name conflict in audioplayers bridge library and flutter_webrtc bridge library.
