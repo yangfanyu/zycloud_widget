@@ -169,7 +169,7 @@ class ZyEditor extends StatefulWidget {
     this.showSuperscript = true,
 
     ///自定义按钮配置信息
-    this.imageButtonEnable = false,
+    this.imageButtonEnable = true,
     this.imageButtonTooltip,
     this.onImageFormatUrl,
     this.onImagePickCallback,

@@ -200,6 +200,15 @@ class ZyService {
     }
   }
 
+  ///选择一个文件夹目录
+  static Future<String?> getDirectoryPath({String? dialogTitle, bool lockParentWindow = false, String? initialDirectory}) {
+    return FilePicker.platform.getDirectoryPath(
+      dialogTitle: dialogTitle,
+      lockParentWindow: lockParentWindow,
+      initialDirectory: initialDirectory,
+    );
+  }
+
   ///创建WebViewController
   static WebViewController createWebViewController({
     bool androidEnableDebugging = false,
