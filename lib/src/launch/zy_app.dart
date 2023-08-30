@@ -77,8 +77,8 @@ class ZyApp extends StatefulWidget {
   ///正在后台运行
   static bool get isInBackground => _isInBackground;
 
-  ///重新装载代码
-  static void reassemble() => _ZyAppState._instance?._fetchRemoteApp();
+  ///尝试拉取最新版的远程代码
+  static void tryFetch() => _ZyAppState._instance?._fetchRemoteApp();
 
   ///以Trace级别输出日志信息
   static void logTrace(List<dynamic> args) => _logger?.logTrace(args);
@@ -516,7 +516,10 @@ class _ZyAppState extends State<ZyApp> with WidgetsBindingObserver {
   void reassemble() {
     super.reassemble();
     if (ZyApp.logLifecycle) ZyApp.logInfo(['app', '${widget.widgetName}.reassemble()']);
-    _fetchRemoteApp();
+    //如果当前是通过remoteAppBuilder进行的渲染，尝试重新拉取远程代码，否则不要管
+    if (_remoteFetchDone && _remoteFetchSuccess) {
+      _fetchRemoteApp();
+    }
   }
 
   @override
