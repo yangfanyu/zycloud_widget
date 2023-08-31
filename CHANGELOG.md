@@ -1,3 +1,7 @@
+## 1.0.13
+
+- Added ZyApp.isRemoteAppBuilder property, and updated bridge library.
+  
 ## 1.0.12
 
 - Add the ZyService.getDirectoryPath method and fix the problem of incorrect web environment bridge library file name.
