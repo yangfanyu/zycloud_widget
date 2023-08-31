@@ -40,12 +40,7 @@ class ZyApp extends StatefulWidget {
     bool logLifecycle = false,
     bool logRouteStack = false,
   }) {
-    _logger = logger ??
-        EasyLogger(
-          logLevel: logLevel,
-          logTag: '${ZyDeviceInfo.deviceType.name}-$widgetName',
-          logger: bestConsoleLogger,
-        );
+    _logger = logger ?? EasyLogger(logLevel: logLevel, logTag: '${ZyDeviceInfo.deviceType.name}-$widgetName', logger: bestConsoleLogger);
     _logLifecycle = logLifecycle;
     _logRouteStack = logRouteStack;
   }
@@ -76,6 +71,9 @@ class ZyApp extends StatefulWidget {
 
   ///正在后台运行
   static bool get isInBackground => _isInBackground;
+
+  ///当前界面为远程构建器渲染
+  static bool get isRemoteAppBuilder => _ZyAppState._instance?.isRemoteAppBuilder == true;
 
   ///尝试拉取最新版的远程代码
   static void tryFetch() => _ZyAppState._instance?._fetchRemoteApp();
@@ -493,6 +491,9 @@ class _ZyAppState extends State<ZyApp> with WidgetsBindingObserver {
   ///远程拉取任务锁，防止重复调用
   bool _remoteFetchLocking = false;
 
+  ///当前界面为远程构建器渲染
+  bool get isRemoteAppBuilder => _remoteFetchDone && _remoteFetchSuccess;
+
   _ZyAppState() {
     _instance = this;
   }
@@ -517,7 +518,7 @@ class _ZyAppState extends State<ZyApp> with WidgetsBindingObserver {
     super.reassemble();
     if (ZyApp.logLifecycle) ZyApp.logInfo(['app', '${widget.widgetName}.reassemble()']);
     //如果当前是通过remoteAppBuilder进行的渲染，尝试重新拉取远程代码，否则不要管
-    if (_remoteFetchDone && _remoteFetchSuccess) {
+    if (isRemoteAppBuilder) {
       _fetchRemoteApp();
     }
   }

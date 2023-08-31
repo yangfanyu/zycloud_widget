@@ -48,6 +48,7 @@ class ZywidgetLibrary {
       'doWhile': VmProxy(identifier: 'doWhile', externalStaticPropertyReader: () => ZyApp.doWhile, externalStaticFunctionCaller: (a0) => ZyApp.doWhile(() => a0())),
       'indexWhere': VmProxy(identifier: 'indexWhere', externalStaticPropertyReader: () => ZyApp.indexWhere, externalStaticFunctionCaller: (a0, {first = true}) => ZyApp.indexWhere((b0) => a0(b0), first: first)),
       'isInBackground': VmProxy(identifier: 'isInBackground', externalStaticPropertyReader: () => ZyApp.isInBackground),
+      'isRemoteAppBuilder': VmProxy(identifier: 'isRemoteAppBuilder', externalStaticPropertyReader: () => ZyApp.isRemoteAppBuilder),
       'logDebug': VmProxy(identifier: 'logDebug', externalStaticPropertyReader: () => ZyApp.logDebug),
       'logError': VmProxy(identifier: 'logError', externalStaticPropertyReader: () => ZyApp.logError),
       'logFatal': VmProxy(identifier: 'logFatal', externalStaticPropertyReader: () => ZyApp.logFatal),
