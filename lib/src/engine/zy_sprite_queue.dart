@@ -35,6 +35,10 @@ class ZySpriteQueue {
     this.boxPadding = EdgeInsets.zero,
   }) : _labelQueue = Queue();
 
+  bool get isEmpty => _labelQueue.isEmpty;
+
+  bool get isNotEmpty => _labelQueue.isNotEmpty;
+
   void addLabel(ZySpriteLabel label) => _labelQueue.add(label);
 
   void render(Canvas canvas, {required Offset position, required ZyAnchor anchor}) {

@@ -106,6 +106,10 @@ class ZySpriteState {
         _rightGrowLabels = [],
         _rightDownLabels = [];
 
+  bool get isEmpty => _stateLabel.text.isEmpty && _stateSprites.isEmpty && _topGrowLabels.isEmpty && _leftGrowLabels.isEmpty && _leftDownLabels.isEmpty && _rightGrowLabels.isEmpty && _rightDownLabels.isEmpty;
+
+  bool get isNotEmpty => !isEmpty;
+
   set stateText(String value) => _stateLabel.setLabel(style: ZySpriteStyle.stateStyle, value: value);
 
   void addStateSprite(ZySprite sprite) => _stateSprites.add(sprite);
