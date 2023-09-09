@@ -1,3 +1,7 @@
+## 1.0.14
+
+- Add ZySpriteQueue to render ZySpriteLabel queue, and updated bridge library.
+  
 ## 1.0.13
 
 - Added ZyApp.isRemoteAppBuilder property, and updated bridge library.

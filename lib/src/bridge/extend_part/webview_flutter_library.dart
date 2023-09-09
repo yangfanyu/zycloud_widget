@@ -42,6 +42,40 @@ class WebviewFlutterLibrary {
     },
   );
 
+  ///class JavaScriptConsoleMessage
+  static final classJavaScriptConsoleMessage = VmClass<JavaScriptConsoleMessage>(
+    identifier: 'JavaScriptConsoleMessage',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => JavaScriptConsoleMessage.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (JavaScriptConsoleMessage instance) => instance.hashCode),
+      'level': VmProxy(identifier: 'level', externalInstancePropertyReader: (JavaScriptConsoleMessage instance) => instance.level),
+      'message': VmProxy(identifier: 'message', externalInstancePropertyReader: (JavaScriptConsoleMessage instance) => instance.message),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (JavaScriptConsoleMessage instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptConsoleMessage instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptConsoleMessage instance) => instance.toString),
+    },
+  );
+
+  ///class JavaScriptLogLevel
+  static final classJavaScriptLogLevel = VmClass<JavaScriptLogLevel>(
+    identifier: 'JavaScriptLogLevel',
+    superclassNames: ['Object', 'Enum'],
+    externalProxyMap: {
+      'debug': VmProxy(identifier: 'debug', externalStaticPropertyReader: () => JavaScriptLogLevel.debug),
+      'error': VmProxy(identifier: 'error', externalStaticPropertyReader: () => JavaScriptLogLevel.error),
+      'info': VmProxy(identifier: 'info', externalStaticPropertyReader: () => JavaScriptLogLevel.info),
+      'log': VmProxy(identifier: 'log', externalStaticPropertyReader: () => JavaScriptLogLevel.log),
+      'warning': VmProxy(identifier: 'warning', externalStaticPropertyReader: () => JavaScriptLogLevel.warning),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (JavaScriptLogLevel instance) => instance.hashCode),
+      'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (JavaScriptLogLevel instance) => instance.index),
+      'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (JavaScriptLogLevel instance) => instance.name),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (JavaScriptLogLevel instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptLogLevel instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptLogLevel instance) => instance.toString),
+    },
+  );
+
   ///class JavaScriptMessage
   static final classJavaScriptMessage = VmClass<JavaScriptMessage>(
     identifier: 'JavaScriptMessage',
@@ -226,6 +260,7 @@ class WebviewFlutterLibrary {
       'scrollTo': VmProxy(identifier: 'scrollTo', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.scrollTo),
       'setBackgroundColor': VmProxy(identifier: 'setBackgroundColor', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setBackgroundColor),
       'setJavaScriptMode': VmProxy(identifier: 'setJavaScriptMode', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setJavaScriptMode),
+      'setOnConsoleMessage': VmProxy(identifier: 'setOnConsoleMessage', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnConsoleMessage, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnConsoleMessage((b0) => a0(b0))),
       'setOnPlatformPermissionRequest': VmProxy(identifier: 'setOnPlatformPermissionRequest', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnPlatformPermissionRequest, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnPlatformPermissionRequest((b0) => a0(b0))),
       'setPlatformNavigationDelegate': VmProxy(identifier: 'setPlatformNavigationDelegate', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setPlatformNavigationDelegate),
       'setUserAgent': VmProxy(identifier: 'setUserAgent', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setUserAgent),
@@ -544,6 +579,8 @@ class WebviewFlutterLibrary {
   static final libraryClassList = <VmClass>[
     classHttpResponseError,
     classJavaScriptChannelParams,
+    classJavaScriptConsoleMessage,
+    classJavaScriptLogLevel,
     classJavaScriptMessage,
     classJavaScriptMode,
     classLoadRequestMethod,

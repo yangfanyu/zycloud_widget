@@ -11,6 +11,7 @@ export 'src/engine/zy_sound.dart';
 export 'src/engine/zy_sprite_image.dart';
 export 'src/engine/zy_sprite_label.dart';
 export 'src/engine/zy_sprite_layer.dart';
+export 'src/engine/zy_sprite_queue.dart';
 export 'src/engine/zy_sprite_shape.dart';
 export 'src/engine/zy_sprite_sheet.dart';
 export 'src/engine/zy_sprite_state.dart';

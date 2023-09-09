@@ -45,7 +45,7 @@ class ZySpriteLabel {
   ///内容尺寸
   Size get size => _size;
 
-  ///绘制到[canvas]。当[markSize]与[markPaint]都不为null时绘制正方形背景，若此时[linePaint]也不为null则再绘制一个边框
+  ///绘制到[canvas]。当[markSize]、[markPaint]都不为null时绘制正方形背景，若此时[linePaint]也不为null则再绘制一个边框
   void render(Canvas canvas, {required Offset position, required ZyAnchor anchor, double? markSize, Paint? markPaint, Paint? linePaint}) {
     if (markSize != null && markPaint != null) {
       final markRect = Rect.fromLTWH(
@@ -68,8 +68,20 @@ class ZySpriteLabel {
     }
   }
 
-  ///绘制到[canvas]。额外偏移坐标为[stateX]与[stateY]
-  void renderForState(Canvas canvas, {required Offset position, required ZyAnchor anchor}) {
+  ///绘制到[canvas]。额外偏移坐标为[stateX]与[stateY]。当[boxPaint]、[boxRadius]、[boxPadding]都不为null时绘制圆椒矩形背景
+  void renderForState(Canvas canvas, {required Offset position, required ZyAnchor anchor, Paint? boxPaint, Radius? boxRadius, EdgeInsets? boxPadding}) {
+    if (boxPaint != null && boxRadius != null && boxPadding != null) {
+      final boxRRect = RRect.fromRectAndRadius(
+        Rect.fromLTWH(
+          position.dx - _size.width * anchor.x + stateX - boxPadding.left,
+          position.dy - _size.height * anchor.y + stateY - boxPadding.top,
+          _size.width + boxPadding.horizontal,
+          _size.height + boxPadding.vertical,
+        ),
+        boxRadius,
+      );
+      canvas.drawRRect(boxRRect, boxPaint);
+    }
     for (var i = 0; i < _painterList.length; i++) {
       final painter = _painterList[i];
       final layout = _layoutList[i];

@@ -1703,6 +1703,26 @@ class ZywidgetLibrary {
     },
   );
 
+  ///class ZySpriteQueue
+  static final classZySpriteQueue = VmClass<ZySpriteQueue>(
+    identifier: 'ZySpriteQueue',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => ZySpriteQueue.new),
+      'addLabel': VmProxy(identifier: 'addLabel', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.addLabel),
+      'boxPadding': VmProxy(identifier: 'boxPadding', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.boxPadding),
+      'boxPaint': VmProxy(identifier: 'boxPaint', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.boxPaint),
+      'boxRadius': VmProxy(identifier: 'boxRadius', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.boxRadius),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.hashCode),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.noSuchMethod),
+      'render': VmProxy(identifier: 'render', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.render),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.toString),
+      'tweenRange': VmProxy(identifier: 'tweenRange', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.tweenRange),
+      'tweenSpeed': VmProxy(identifier: 'tweenSpeed', externalInstancePropertyReader: (ZySpriteQueue instance) => instance.tweenSpeed),
+    },
+  );
+
   ///class ZySpriteShape
   static final classZySpriteShape = VmClass<ZySpriteShape>(
     identifier: 'ZySpriteShape',
@@ -2413,6 +2433,7 @@ class ZywidgetLibrary {
     classZySpriteImage,
     classZySpriteLabel,
     classZySpriteLayer,
+    classZySpriteQueue,
     classZySpriteShape,
     classZySpriteSheet,
     classZySpriteState,
