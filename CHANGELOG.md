@@ -1,3 +1,7 @@
+## 1.0.15
+
+- Add isEmpty and isNotEmpty method to ZySpriteQueue class and ZySpriteState class.
+  
 ## 1.0.14
 
 - Add ZySpriteQueue to render ZySpriteLabel queue, and updated bridge library.
