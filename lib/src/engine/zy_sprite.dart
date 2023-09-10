@@ -7,6 +7,7 @@ import 'zy_sprite_label.dart';
 import 'zy_sprite_shape.dart';
 import 'zy_sprite_state.dart';
 import 'zy_sprite_style.dart';
+import 'zy_texture.dart';
 
 ///
 ///精灵
@@ -327,6 +328,44 @@ class ZySprite {
     if (transform) {
       canvas.restore(); //恢复
     }
+  }
+
+  ///目标精灵[target]是否在本精灵的[direct]方向，[range]容错范围一般为移动速度的最大值
+  bool frontFaceMovingAndMoving({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY, required int direct, required double range}) {
+    if (direct == ZyTextureRole.directD || direct == ZyTextureRole.directU) {
+      //往上或下走，目标精灵左或右偏移range后都碰撞，则认为是面朝的方向
+      return collisionMovingAndMoving(
+            detectX: detectX,
+            detectY: detectY,
+            target: target,
+            targetX: (targetX ?? target._position.dx) - range,
+            targetY: targetY,
+          ) &&
+          collisionMovingAndMoving(
+            detectX: detectX,
+            detectY: detectY,
+            target: target,
+            targetX: (targetX ?? target._position.dx) + range,
+            targetY: targetY,
+          );
+    } else if (direct == ZyTextureRole.directL || direct == ZyTextureRole.directR) {
+      //往左或右走，目标精灵上或下偏移beta后都碰撞，则认为是面朝的方向
+      return collisionMovingAndMoving(
+            detectX: detectX,
+            detectY: detectY,
+            target: target,
+            targetX: targetX,
+            targetY: (targetY ?? target._position.dy) - range,
+          ) &&
+          collisionMovingAndMoving(
+            detectX: detectX,
+            detectY: detectY,
+            target: target,
+            targetX: targetX,
+            targetY: (targetY ?? target._position.dy) + range,
+          );
+    }
+    return false;
   }
 
   ///碰撞检测---移动矩形 vs 移动矩形
