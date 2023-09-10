@@ -1,3 +1,7 @@
+## 1.0.16
+
+- Add frontFaceMovingAndMoving method to ZySprite class.
+
 ## 1.0.15
 
 - Add isEmpty and isNotEmpty method to ZySpriteQueue class and ZySpriteState class.

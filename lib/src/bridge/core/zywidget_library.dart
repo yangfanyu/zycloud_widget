@@ -1604,6 +1604,7 @@ class ZywidgetLibrary {
       'enableAlive': VmProxy(identifier: 'enableAlive', externalInstancePropertyWriter: (ZySprite instance, value) => instance.enableAlive = value),
       'enableRects': VmProxy(identifier: 'enableRects', externalInstancePropertyWriter: (ZySprite instance, value) => instance.enableRects = value),
       'fliped': VmProxy(identifier: 'fliped', externalInstancePropertyWriter: (ZySprite instance, value) => instance.fliped = value),
+      'frontFaceMovingAndMoving': VmProxy(identifier: 'frontFaceMovingAndMoving', externalInstancePropertyReader: (ZySprite instance) => instance.frontFaceMovingAndMoving),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (ZySprite instance) => instance.hashCode),
       'initGroups': VmProxy(identifier: 'initGroups', externalInstancePropertyReader: (ZySprite instance) => instance.initGroups),
       'isAlive': VmProxy(identifier: 'isAlive', externalInstancePropertyReader: (ZySprite instance) => instance.isAlive),
