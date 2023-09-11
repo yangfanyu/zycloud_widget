@@ -1,3 +1,7 @@
+## 1.0.18
+
+- Optimized the translation animation of ZySpriteState class and ZySpriteQueue class at different frame rates.
+  
 ## 1.0.16
 
 - Add frontFaceMovingAndMoving method to ZySprite class.

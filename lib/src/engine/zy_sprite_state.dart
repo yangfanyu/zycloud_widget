@@ -14,11 +14,14 @@ class ZySpriteState {
   ///精灵尺寸
   final double size;
 
-  ///x轴速度
-  final double speedX;
+  ///补间速度
+  final Offset speed;
 
-  ///y轴速度
-  final double speedY;
+  ///补间范围
+  final Offset range;
+
+  ///x轴达到[range]后，仍然在x轴进行平移
+  final bool keepX;
 
   ///条外边距
   final double margin;
@@ -47,18 +50,6 @@ class ZySpriteState {
   ///当前真气值
   int mp;
 
-  ///下轴变化阙值
-  final double _queValueD;
-
-  ///左轴变化阙值
-  final double _queValueL;
-
-  ///右轴变化阙值
-  final double _queValueR;
-
-  ///上轴变化阙值
-  final double _queValueU;
-
   ///顶部状态标签
   final ZySpriteLabel _stateLabel;
 
@@ -80,10 +71,14 @@ class ZySpriteState {
   ///右边下降标签
   final List<ZySpriteLabel> _rightDownLabels;
 
+  ///帧间隔比值
+  double _dtRatio;
+
   ZySpriteState({
     required this.size,
-    required this.speedX,
-    required this.speedY,
+    required this.speed,
+    required this.range,
+    this.keepX = true,
     this.margin = 1,
     this.bgHeight = 6,
     this.hpHeight = 4,
@@ -94,21 +89,17 @@ class ZySpriteState {
     this.mp = 0,
     int stateColumn = ZySpriteStyle.maxStateColumn,
   })  : randomer = Random(),
-        _queValueD = size * 0.5,
-        _queValueL = -size,
-        _queValueR = size,
-        _queValueU = -size,
         _stateLabel = ZySpriteLabel(style: ZySpriteStyle.stateStyle, value: '', column: stateColumn),
         _stateSprites = [],
         _topGrowLabels = [],
         _leftGrowLabels = [],
         _leftDownLabels = [],
         _rightGrowLabels = [],
-        _rightDownLabels = [];
+        _rightDownLabels = [],
+        _dtRatio = 1.0;
 
-  bool get isEmpty => _stateLabel.text.isEmpty && _stateSprites.isEmpty && _topGrowLabels.isEmpty && _leftGrowLabels.isEmpty && _leftDownLabels.isEmpty && _rightGrowLabels.isEmpty && _rightDownLabels.isEmpty;
-
-  bool get isNotEmpty => !isEmpty;
+  ///有无补间动画
+  bool get hasTweens => _topGrowLabels.isNotEmpty || _leftGrowLabels.isNotEmpty || _leftDownLabels.isNotEmpty || _rightGrowLabels.isNotEmpty || _rightDownLabels.isNotEmpty;
 
   set stateText(String value) => _stateLabel.setLabel(style: ZySpriteStyle.stateStyle, value: value);
 
@@ -136,9 +127,12 @@ class ZySpriteState {
     }
   }
 
-  void spritesNextFrame() {
-    for (var sprite in _stateSprites) {
-      sprite.nextFrame();
+  void updateDt(double dt, bool nextFrame) {
+    _dtRatio = dt * ZySpriteStyle.designTweenFps; //倍数 = dt / ( 1 / 30 ) = dt * 30
+    if (nextFrame) {
+      for (var sprite in _stateSprites) {
+        sprite.nextFrame();
+      }
     }
   }
 
@@ -146,6 +140,8 @@ class ZySpriteState {
     final barX = position.dx - size * anchor.x + margin;
     final barY = position.dy - size * anchor.y - margin;
     final barWidth = size - margin * 2;
+    final speedX = speed.dx * _dtRatio;
+    final speedY = speed.dy * _dtRatio;
     //背景
     canvas.drawRect(Rect.fromLTWH(barX, barY - bgHeight, barWidth, bgHeight), ZySpriteStyle.bgBarPaint);
     //生命
@@ -169,31 +165,47 @@ class ZySpriteState {
       label.renderForState(canvas, position: position, anchor: anchor);
     }
     for (var label in _leftGrowLabels) {
-      if (label.stateX > _queValueL) label.stateX -= speedX;
-      label.stateY -= speedY;
+      if (label.stateX > -range.dx) {
+        label.stateX -= speedX;
+      } else {
+        if (keepX) label.stateX -= speedX;
+        label.stateY -= speedY;
+      }
       label.renderForState(canvas, position: position, anchor: anchor);
     }
     for (var label in _leftDownLabels) {
-      if (label.stateX > _queValueL) label.stateX -= speedX;
-      label.stateY += speedY;
+      if (label.stateX > -range.dx) {
+        label.stateX -= speedX;
+      } else {
+        if (keepX) label.stateX -= speedX;
+        label.stateY += speedY;
+      }
       label.renderForState(canvas, position: position, anchor: anchor);
     }
     for (var label in _rightGrowLabels) {
-      if (label.stateX < _queValueR) label.stateX += speedX;
-      label.stateY -= speedY;
+      if (label.stateX < range.dx) {
+        label.stateX += speedX;
+      } else {
+        if (keepX) label.stateX += speedX;
+        label.stateY -= speedY;
+      }
       label.renderForState(canvas, position: position, anchor: anchor);
     }
     for (var label in _rightDownLabels) {
-      if (label.stateX < _queValueR) label.stateX += speedX;
-      label.stateY += speedY;
+      if (label.stateX < range.dx) {
+        label.stateX += speedX;
+      } else {
+        if (keepX) label.stateX += speedX;
+        label.stateY += speedY;
+      }
       label.renderForState(canvas, position: position, anchor: anchor);
     }
     //移除
     _stateSprites.removeWhere((sprite) => sprite.isEnd);
-    _topGrowLabels.removeWhere((label) => label.stateY < _queValueU);
-    _leftGrowLabels.removeWhere((label) => label.stateY < _queValueU);
-    _leftDownLabels.removeWhere((label) => label.stateY > _queValueD);
-    _rightGrowLabels.removeWhere((label) => label.stateY < _queValueU);
-    _rightDownLabels.removeWhere((label) => label.stateY > _queValueD);
+    _topGrowLabels.removeWhere((label) => label.stateY < -range.dy);
+    _leftGrowLabels.removeWhere((label) => label.stateY < -range.dy);
+    _leftDownLabels.removeWhere((label) => label.stateY > range.dy);
+    _rightGrowLabels.removeWhere((label) => label.stateY < -range.dy);
+    _rightDownLabels.removeWhere((label) => label.stateY > range.dy);
   }
 }

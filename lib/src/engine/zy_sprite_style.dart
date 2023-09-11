@@ -21,6 +21,9 @@ class ZySpriteStyle {
   ///形状的最大拆分
   static const maxShapeSplit = 5;
 
+  ///补间动画设计帧
+  static const designTweenFps = 30.0;
+
   ///精灵标签样式
   static late final TextStyle labelStyle;
 

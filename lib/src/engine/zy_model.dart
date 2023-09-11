@@ -203,11 +203,11 @@ extension ZyCoordMethod on ZyCoord {
     );
   }
 
-  ///计算尝试往[direct]方向移动[vector]的坐标列表，设计的速度为30fps时的速度，所以适配当前刷帧间隔[dt]时: 倍数 = dt / ( 1 / 30 ) = dt * 30
+  ///计算尝试往[direct]方向移动[vector]的坐标列表，设计的速度为[ZySpriteStyle.designTweenFps]即30fps时的速度，所以适配当前刷帧间隔[dt]时: 倍数 = dt / ( 1 / 30 ) = dt * 30
   List<ZyCoord> nextList({double? unitSize, required int direct, required Offset vector, required double speed, required double dt}) {
     unitSize ??= ZySpriteStyle.defUnitSize;
     final coordRes = <ZyCoord>[];
-    final speedRes = speed * dt * 30; //倍数 = dt / ( 1 / 30 ) = dt * 30
+    final speedRes = speed * dt * ZySpriteStyle.designTweenFps; //倍数 = dt / ( 1 / 30 ) = dt * 30
     //按向量方向
     final rx = dx + vector.dx * speedRes;
     final ry = dy + vector.dy * speedRes;
@@ -260,7 +260,7 @@ extension ZyMovieMethod on ZyMovie {
   }
 
   ///获取战斗精灵，[direct]不为null时返回对应方向的精灵，否则返回[vice]精灵。[label]为占位文本精灵的标签
-  ZySprite getSpriteBattle({double? unitSize, int? direct, String label = '*'}) {
+  ZySprite getSpriteBattle({double? unitSize, int? direct, String label = 'X', double blankFactor = 0.3}) {
     ZySprite? sprite;
     switch (direct) {
       case ZyTextureRole.directD:
@@ -279,7 +279,7 @@ extension ZyMovieMethod on ZyMovie {
         sprite = vice?.getSprite(unitSize: unitSize);
         break;
     }
-    sprite ??= ZySprite(type: -1, txId: -1, spId: -1, size: (unitSize ??= ZySpriteStyle.defUnitSize) * 0.5);
+    sprite ??= ZySprite(type: -1, txId: -1, spId: -1, size: (unitSize ??= ZySpriteStyle.defUnitSize) * blankFactor);
     sprite.label = label;
     sprite.labelRound = true;
     return sprite;
