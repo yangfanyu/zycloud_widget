@@ -1,4 +1,4 @@
-## 1.0.18
+## 1.0.19
 
 - Optimized the translation animation of ZySpriteState class and ZySpriteQueue class at different frame rates.
   
