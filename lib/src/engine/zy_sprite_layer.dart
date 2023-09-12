@@ -351,14 +351,11 @@ class ZySpriteLayer {
     unitSize ??= ZySpriteStyle.defUnitSize;
     if (expRange <= 0 || unitSize <= 0 || txspData == null) return const {};
     //计算矩形
-    final spHalfSize = sprite.size * 0.5;
-    final spOffsetDx = sprite.dx - spHalfSize;
-    final spOffsetDy = sprite.dy - spHalfSize;
     final expendSize = expRange * unitSize;
-    final battleRectD = ZySpriteShape.getShape(index: battle.dirD?.rectBT ?? 0).getRect(size: sprite.size, dx: spOffsetDx, dy: spOffsetDy);
-    final battleRectL = ZySpriteShape.getShape(index: battle.dirL?.rectBT ?? 0).getRect(size: sprite.size, dx: spOffsetDx, dy: spOffsetDy);
-    final battleRectR = ZySpriteShape.getShape(index: battle.dirR?.rectBT ?? 0).getRect(size: sprite.size, dx: spOffsetDx, dy: spOffsetDy);
-    final battleRectU = ZySpriteShape.getShape(index: battle.dirU?.rectBT ?? 0).getRect(size: sprite.size, dx: spOffsetDx, dy: spOffsetDy);
+    final battleRectD = battle.getSpriteBattle(unitSize: unitSize, direct: ZyTextureRole.directD).getRectBattle(offsetX: sprite.dx, offsetY: sprite.dy);
+    final battleRectL = battle.getSpriteBattle(unitSize: unitSize, direct: ZyTextureRole.directL).getRectBattle(offsetX: sprite.dx, offsetY: sprite.dy);
+    final battleRectR = battle.getSpriteBattle(unitSize: unitSize, direct: ZyTextureRole.directR).getRectBattle(offsetX: sprite.dx, offsetY: sprite.dy);
+    final battleRectU = battle.getSpriteBattle(unitSize: unitSize, direct: ZyTextureRole.directU).getRectBattle(offsetX: sprite.dx, offsetY: sprite.dy);
     final rectD = Rect.fromLTWH(battleRectD.left, battleRectD.top, battleRectD.width, battleRectD.height + expendSize);
     final rectL = Rect.fromLTWH(battleRectL.left - expendSize, battleRectL.top, battleRectL.width + expendSize, battleRectL.height);
     final rectR = Rect.fromLTWH(battleRectR.left, battleRectR.top, battleRectR.width + expendSize, battleRectR.height);

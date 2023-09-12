@@ -1,6 +1,6 @@
 name: zycloud_widget
 description: This library contains a dynamic Flutter widget module based on the shelf_easy virtual machine, and some third-party library bridge generation modules.
-version: 1.0.19
+version: 1.0.20
 homepage: https://github.com/yangfanyu/zycloud_widget
 
 environment:
@@ -43,7 +43,7 @@ dependencies:
   webrtc_interface: ^1.0.0
   # -------- Below plugins only support [android, ios, windows] platform --------    
   # extend_part
-  permission_handler: ^10.2.0
+  permission_handler: ^11.0.0
   # extend_part_depend
   permission_handler_platform_interface: ^3.9.0
   # -------- Below plugins only support [android, ios] platform --------    

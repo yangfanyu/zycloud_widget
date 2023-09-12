@@ -259,8 +259,9 @@ extension ZyMovieMethod on ZyMovie {
     return dirU?.getSprite(unitSize: unitSize);
   }
 
-  ///获取战斗精灵，[direct]不为null时返回对应方向的精灵，否则返回[vice]精灵。[label]为占位文本精灵的标签
-  ZySprite getSpriteBattle({double? unitSize, int? direct, String label = 'X', double blankFactor = 0.3}) {
+  ///获取战斗精灵，[direct]不为null时返回对应方向的精灵，否则返回[vice]精灵。[label]为占位文本精灵的标签，[round]为true时占位矩形启用圆角
+  ZySprite getSpriteBattle({double? unitSize, int? direct, String label = '-', bool round = true}) {
+    unitSize ??= ZySpriteStyle.defUnitSize;
     ZySprite? sprite;
     switch (direct) {
       case ZyTextureRole.directD:
@@ -279,9 +280,9 @@ extension ZyMovieMethod on ZyMovie {
         sprite = vice?.getSprite(unitSize: unitSize);
         break;
     }
-    sprite ??= ZySprite(type: -1, txId: -1, spId: -1, size: (unitSize ??= ZySpriteStyle.defUnitSize) * blankFactor);
+    sprite ??= ZySprite(type: -1, txId: -1, spId: -1, size: unitSize / 3); //此处固定为1/3的单元格
     sprite.label = label;
-    sprite.labelRound = true;
+    sprite.labelRound = round;
     return sprite;
   }
 }

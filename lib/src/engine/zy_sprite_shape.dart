@@ -32,13 +32,22 @@ class ZySpriteShape {
     this.ec = 1,
   });
 
+  ///计算标准矩形
+  Rect getRect({required double size, required double dx, required dy, required ZyAnchor anchor}) {
+    dx -= size * anchor.x;
+    dy -= size * anchor.y;
+    final unit = size / split; //尽量保证能整数是最好的
+    return Rect.fromLTRB(
+      dx + (sc * unit).floorToDouble(),
+      dy + (sr * unit).floorToDouble(),
+      dx + (ec * unit).floorToDouble(),
+      dy + (er * unit).floorToDouble(),
+    );
+  }
+
   ///绘制到[canvas]。[crossLine]为true时绘制交叉线，[roundRect]为true时绘制为圆角矩形并会忽略[crossLine]参数
   void render(Canvas canvas, {required Offset position, required ZyAnchor anchor, required Paint paint, required double size, bool crossLine = false, bool roundRect = false}) {
-    final rect = getRect(
-      size: size,
-      dx: position.dx - size * anchor.x,
-      dy: position.dy - size * anchor.y,
-    );
+    final rect = getRect(size: size, dx: position.dx, dy: position.dy, anchor: anchor);
     if (roundRect) {
       canvas.drawRRect(RRect.fromRectAndRadius(rect, Radius.circular(min(rect.width, rect.height))), paint);
     } else {
@@ -48,17 +57,6 @@ class ZySpriteShape {
       }
       canvas.drawRect(rect, paint);
     }
-  }
-
-  ///计算标准矩形
-  Rect getRect({required double size, double dx = 0, dy = 0}) {
-    final unit = size / split; //尽量保证能整数是最好的
-    return Rect.fromLTRB(
-      dx + (sc * unit).floorToDouble(),
-      dy + (sr * unit).floorToDouble(),
-      dx + (ec * unit).floorToDouble(),
-      dy + (er * unit).floorToDouble(),
-    );
   }
 
   ///计算形状索引

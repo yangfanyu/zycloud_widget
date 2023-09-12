@@ -330,8 +330,50 @@ class ZySprite {
     }
   }
 
-  ///目标精灵[target]是否在本精灵的[direct]方向，[range]容错范围一般为移动速度的最大值
-  bool frontFaceMovingAndMoving({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY, required int direct, required double range}) {
+  ///平移矩形--容器矩形
+  Rect getRectMaxbox({double? offsetX, double? offsetY}) => _shapeMaxbox.getRect(
+        size: size,
+        dx: offsetX ?? _position.dx,
+        dy: offsetY ?? _position.dy,
+        anchor: _anchor,
+      );
+
+  ///平移矩形--移动矩形
+  Rect getRectMoving({double? offsetX, double? offsetY}) => _shapeMoving.getRect(
+        size: size,
+        dx: offsetX ?? _position.dx,
+        dy: offsetY ?? _position.dy,
+        anchor: _anchor,
+      );
+
+  ///平移矩形--战斗矩形
+  Rect getRectBattle({double? offsetX, double? offsetY}) => _shapeBattle.getRect(
+        size: size,
+        dx: offsetX ?? _position.dx,
+        dy: offsetY ?? _position.dy,
+        anchor: _anchor,
+      );
+
+  ///碰撞检测---移动矩形 vs 移动矩形
+  bool collisionMovingAndMoving({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY}) => collisionRectAndRect(
+        rect1: getRectMoving(offsetX: detectX, offsetY: detectY),
+        rect2: target.getRectMoving(offsetX: targetX, offsetY: targetY),
+      );
+
+  ///碰撞检测---战斗矩形 vs 战斗矩形
+  bool collisionBattleAndBattle({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY}) => collisionRectAndRect(
+        rect1: getRectBattle(offsetX: detectX, offsetY: detectY),
+        rect2: target.getRectBattle(offsetX: targetX, offsetY: targetY),
+      );
+
+  ///碰撞检测---战斗矩形 vs 任意矩形
+  bool collisionBattleAndRect({double? detectX, double? detectY, required Rect target}) => collisionRectAndRect(
+        rect1: getRectBattle(offsetX: detectX, offsetY: detectY),
+        rect2: target,
+      );
+
+  ///目标精灵[target]是否在本精灵的[direct]方向发生碰撞，[range]容错范围一般为移动速度的最大值
+  bool frontCollisionMovingAndMoving({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY, required int direct, required double range}) {
     if (direct == ZyTextureRole.directD || direct == ZyTextureRole.directU) {
       //往上或下走，目标精灵左或右偏移range后都碰撞，则认为是面朝的方向
       return collisionMovingAndMoving(
@@ -366,55 +408,6 @@ class ZySprite {
           );
     }
     return false;
-  }
-
-  ///碰撞检测---移动矩形 vs 移动矩形
-  bool collisionMovingAndMoving({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY}) {
-    final halfSize = size * 0.5;
-    final targetHalfSize = target.size * 0.5;
-    return collisionRectAndRect(
-      rect1: _shapeMoving.getRect(
-        size: size,
-        dx: (detectX ?? _position.dx) - halfSize,
-        dy: (detectY ?? _position.dy) - halfSize,
-      ),
-      rect2: target._shapeMoving.getRect(
-        size: target.size,
-        dx: (targetX ?? target._position.dx) - targetHalfSize,
-        dy: (targetY ?? target._position.dy) - targetHalfSize,
-      ),
-    );
-  }
-
-  ///碰撞检测---战斗矩形 vs 战斗矩形
-  bool collisionBattleAndBattle({double? detectX, double? detectY, required ZySprite target, double? targetX, double? targetY}) {
-    final halfSize = size * 0.5;
-    final targetHalfSize = target.size * 0.5;
-    return collisionRectAndRect(
-      rect1: _shapeBattle.getRect(
-        size: size,
-        dx: (detectX ?? _position.dx) - halfSize,
-        dy: (detectY ?? _position.dy) - halfSize,
-      ),
-      rect2: target._shapeBattle.getRect(
-        size: target.size,
-        dx: (targetX ?? target._position.dx) - targetHalfSize,
-        dy: (targetY ?? target._position.dy) - targetHalfSize,
-      ),
-    );
-  }
-
-  ///碰撞检测---战斗矩形 vs 任意矩形
-  bool collisionBattleAndRect({double? detectX, double? detectY, required Rect target}) {
-    final halfSize = size * 0.5;
-    return collisionRectAndRect(
-      rect1: _shapeBattle.getRect(
-        size: size,
-        dx: (detectX ?? _position.dx) - halfSize,
-        dy: (detectY ?? _position.dy) - halfSize,
-      ),
-      rect2: target,
-    );
   }
 
   ///碰撞检测---任意矩形 vs 任意矩形
