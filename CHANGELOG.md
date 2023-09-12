@@ -1,4 +1,4 @@
-## 1.0.20
+## 1.0.21
 
 - Optimized some methods related to collision detection.
 
