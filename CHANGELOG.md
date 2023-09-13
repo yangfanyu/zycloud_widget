@@ -1,3 +1,7 @@
+## 1.0.22
+
+- Fixed the issue where the first frame fps of ZyWorld class is Infinity or NaN.
+  
 ## 1.0.21
 
 - Optimized some methods related to collision detection.
