@@ -122,7 +122,8 @@ class _ZyWorldWidgetState extends State<ZyWorldWidget> with SingleTickerProvider
     _animation = Tween<double>(begin: 0.0, end: 1.0).animate(_controller);
     _focusNode = FocusNode(onKey: (node, event) => widget.world.onKeyEvent(event));
     _queueDt = Queue<double>();
-    _currMillis = _lastMillis = DateTime.now().millisecondsSinceEpoch;
+    _lastMillis = 0; //不要设置为当前时间，否则第一帧_sumDt为0，计算得到的_fps为Infinity or NaN
+    _currMillis = DateTime.now().millisecondsSinceEpoch;
   }
 
   @override
