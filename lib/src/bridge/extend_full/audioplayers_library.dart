@@ -134,6 +134,7 @@ class AudioplayersLibrary {
       'loadAsFile': VmProxy(identifier: 'loadAsFile', externalInstancePropertyReader: (AudioCache instance) => instance.loadAsFile),
       'loadAsset': VmProxy(identifier: 'loadAsset', externalInstancePropertyReader: (AudioCache instance) => instance.loadAsset),
       'loadedFiles': VmProxy(identifier: 'loadedFiles', externalInstancePropertyReader: (AudioCache instance) => instance.loadedFiles),
+      'loadPath': VmProxy(identifier: 'loadPath', externalInstancePropertyReader: (AudioCache instance) => instance.loadPath),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AudioCache instance) => instance.noSuchMethod),
       'prefix': VmProxy(identifier: 'prefix', externalInstancePropertyReader: (AudioCache instance) => instance.prefix, externalInstancePropertyWriter: (AudioCache instance, value) => instance.prefix = value),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AudioCache instance) => instance.runtimeType),

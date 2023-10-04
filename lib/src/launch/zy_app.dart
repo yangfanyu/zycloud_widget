@@ -456,9 +456,9 @@ class ZyApp extends StatefulWidget {
   }
 
   ///批量执行异步的while循环，原[Future.doWhile]的替代。
-  static Future<void> doWhile(Future<dynamic> Function() callback) {
+  static Future<void> doWhile(Future<dynamic> Function() action) {
     return Future.doWhile(() async {
-      final result = await callback();
+      final result = await action();
       if (result is bool) {
         return result;
       } else {
@@ -466,6 +466,23 @@ class ZyApp extends StatefulWidget {
         return false;
       }
     });
+  }
+
+  ///批量执行异步的forEach循环，原[Future.forEach]与[Future.wait]的组合扩展。
+  static Future<void> forEach(
+    Iterable<dynamic> elements,
+    Future<dynamic> Function(dynamic) action, {
+    int parallel = 1,
+    bool eagerError = false,
+    void Function(dynamic)? cleanUp,
+  }) {
+    final groupList = <List>[];
+    late List groupEles;
+    for (var i = 0; i < elements.length; i++) {
+      if (i % parallel == 0) groupList.add(groupEles = []);
+      groupEles.add(elements.elementAt(i));
+    }
+    return Future.forEach(groupList, (group) => Future.wait(group.map((e) => action(e)), eagerError: eagerError, cleanUp: cleanUp));
   }
 }
 

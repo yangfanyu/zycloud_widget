@@ -46,6 +46,7 @@ class ZywidgetLibrary {
       'bestConsoleLogger': VmProxy(identifier: 'bestConsoleLogger', externalStaticPropertyReader: () => ZyApp.bestConsoleLogger),
       'canPop': VmProxy(identifier: 'canPop', externalStaticPropertyReader: () => ZyApp.canPop),
       'doWhile': VmProxy(identifier: 'doWhile', externalStaticPropertyReader: () => ZyApp.doWhile, externalStaticFunctionCaller: (a0) => ZyApp.doWhile(() => a0())),
+      'forEach': VmProxy(identifier: 'forEach', externalStaticPropertyReader: () => ZyApp.forEach, externalStaticFunctionCaller: (a0, a1, {parallel = 1, eagerError = false, cleanUp}) => ZyApp.forEach(a0, (b0) => a1(b0), parallel: parallel, eagerError: eagerError, cleanUp: cleanUp == null ? null : (b0) => cleanUp(b0))),
       'indexWhere': VmProxy(identifier: 'indexWhere', externalStaticPropertyReader: () => ZyApp.indexWhere, externalStaticFunctionCaller: (a0, {first = true}) => ZyApp.indexWhere((b0) => a0(b0), first: first)),
       'isInBackground': VmProxy(identifier: 'isInBackground', externalStaticPropertyReader: () => ZyApp.isInBackground),
       'isRemoteAppBuilder': VmProxy(identifier: 'isRemoteAppBuilder', externalStaticPropertyReader: () => ZyApp.isRemoteAppBuilder),

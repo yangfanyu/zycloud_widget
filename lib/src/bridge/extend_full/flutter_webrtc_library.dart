@@ -113,6 +113,7 @@ class FlutterWebrtcLibrary {
       'androidAudioFocusMode': VmProxy(identifier: 'androidAudioFocusMode', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioFocusMode),
       'androidAudioMode': VmProxy(identifier: 'androidAudioMode', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioMode),
       'androidAudioStreamType': VmProxy(identifier: 'androidAudioStreamType', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.androidAudioStreamType),
+      'forceHandleAudioRouting': VmProxy(identifier: 'forceHandleAudioRouting', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.forceHandleAudioRouting),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.hashCode),
       'manageAudioFocus': VmProxy(identifier: 'manageAudioFocus', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.manageAudioFocus),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AndroidAudioConfiguration instance) => instance.noSuchMethod),
@@ -320,12 +321,17 @@ class FlutterWebrtcLibrary {
     superclassNames: ['Object'],
     externalProxyMap: {
       'dispose': VmProxy(identifier: 'dispose', externalInstancePropertyReader: (KeyProvider instance) => instance.dispose),
+      'exportKey': VmProxy(identifier: 'exportKey', externalInstancePropertyReader: (KeyProvider instance) => instance.exportKey),
+      'exportSharedKey': VmProxy(identifier: 'exportSharedKey', externalInstancePropertyReader: (KeyProvider instance) => instance.exportSharedKey),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (KeyProvider instance) => instance.hashCode),
       'id': VmProxy(identifier: 'id', externalInstancePropertyReader: (KeyProvider instance) => instance.id),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (KeyProvider instance) => instance.noSuchMethod),
       'ratchetKey': VmProxy(identifier: 'ratchetKey', externalInstancePropertyReader: (KeyProvider instance) => instance.ratchetKey),
+      'ratchetSharedKey': VmProxy(identifier: 'ratchetSharedKey', externalInstancePropertyReader: (KeyProvider instance) => instance.ratchetSharedKey),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (KeyProvider instance) => instance.runtimeType),
       'setKey': VmProxy(identifier: 'setKey', externalInstancePropertyReader: (KeyProvider instance) => instance.setKey),
+      'setSharedKey': VmProxy(identifier: 'setSharedKey', externalInstancePropertyReader: (KeyProvider instance) => instance.setSharedKey),
+      'setSifTrailer': VmProxy(identifier: 'setSifTrailer', externalInstancePropertyReader: (KeyProvider instance) => instance.setSifTrailer),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (KeyProvider instance) => instance.toString),
     },
   );
@@ -336,6 +342,7 @@ class FlutterWebrtcLibrary {
     superclassNames: ['Object'],
     externalProxyMap: {
       'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => KeyProviderOptions.new),
+      'failureTolerance': VmProxy(identifier: 'failureTolerance', externalInstancePropertyReader: (KeyProviderOptions instance) => instance.failureTolerance, externalInstancePropertyWriter: (KeyProviderOptions instance, value) => instance.failureTolerance = value),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (KeyProviderOptions instance) => instance.hashCode),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (KeyProviderOptions instance) => instance.noSuchMethod),
       'ratchetSalt': VmProxy(identifier: 'ratchetSalt', externalInstancePropertyReader: (KeyProviderOptions instance) => instance.ratchetSalt, externalInstancePropertyWriter: (KeyProviderOptions instance, value) => instance.ratchetSalt = value),
