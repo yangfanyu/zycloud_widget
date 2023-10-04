@@ -1,3 +1,7 @@
+## 1.0.23
+
+- Added ZyApp.forEach method, and updated dependent libraries and bridging libraries.
+  
 ## 1.0.22
 
 - Fixed the issue where the first frame fps of ZyWorld class is Infinity or NaN.
