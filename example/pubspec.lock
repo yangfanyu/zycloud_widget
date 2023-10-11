@@ -9,6 +9,46 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "64.0.0"
+  alipay_kit:
+    dependency: transitive
+    description:
+      name: alipay_kit
+      sha256: "6d6086b4cda1e0cd9b29b6dfe8d0ce88b9efc1c9f2c8d6fb39ac24c4e0f79b06"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0"
+  alipay_kit_android:
+    dependency: transitive
+    description:
+      name: alipay_kit_android
+      sha256: "402917c30e5a1c1bb36cab7c99e355f65a98da96c2666657805a985b00937f6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.0"
+  amap_flutter_base:
+    dependency: transitive
+    description:
+      name: amap_flutter_base
+      sha256: "9ef2439b8de7100cdd1b4357701b8ca8c059c0f2d9d0257b81750bbf0c6f53bb"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
+  amap_flutter_location:
+    dependency: transitive
+    description:
+      name: amap_flutter_location
+      sha256: f35ff00e196d579608e0bc28ccbc1f6f53787644702f947de941f775769cc701
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
+  amap_flutter_map:
+    dependency: transitive
+    description:
+      name: amap_flutter_map
+      sha256: "9cebb0b2f5fc7d3ae0427e99c41edc883e8f5459f6a28bc850f0f9e16918cf2f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   analyzer:
     dependency: transitive
     description:
@@ -21,10 +61,10 @@ packages:
     dependency: transitive
     description:
       name: archive
-      sha256: "06a96f1249f38a00435b3b0c9a3246d934d7dbc8183fc7c9e56989860edb99d4"
+      sha256: "7e0d52067d05f2e0324268097ba723b71cb41ac8a6a2b24d1edf9c536b987b03"
       url: "https://pub.dev"
     source: hosted
-    version: "3.4.4"
+    version: "3.4.6"
   args:
     dependency: transitive
     description:
@@ -741,6 +781,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.3"
+  map_launcher:
+    dependency: transitive
+    description:
+      name: map_launcher
+      sha256: "4db9f2878dd0764f476f613eda671b969084960b6ae81bf578699cfe03e58ce0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.5.0+1"
   matcher:
     dependency: transitive
     description:
@@ -817,10 +865,10 @@ packages:
     dependency: transitive
     description:
       name: package_info_plus
-      sha256: "6ff267fcd9d48cb61c8df74a82680e8b82e940231bb5f68356672fde0397334a"
+      sha256: "0351aaba3b267c4962ed73058a5f62a84de7e39670a20e2916a6baff2ffcfbe5"
       url: "https://pub.dev"
     source: hosted
-    version: "4.1.0"
+    version: "5.0.0"
   package_info_plus_platform_interface:
     dependency: transitive
     description:
@@ -937,10 +985,10 @@ packages:
     dependency: transitive
     description:
       name: permission_handler_platform_interface
-      sha256: f2343e9fa9c22ae4fd92d4732755bfe452214e7189afcc097380950cf567b4b2
+      sha256: "6760eb5ef34589224771010805bea6054ad28453906936f843a8cc4d3a55c4a4"
       url: "https://pub.dev"
     source: hosted
-    version: "3.11.5"
+    version: "3.12.0"
   permission_handler_windows:
     dependency: transitive
     description:
@@ -961,10 +1009,10 @@ packages:
     dependency: transitive
     description:
       name: platform
-      sha256: ae68c7bfcd7383af3629daafb32fb4e8681c7154428da4febcff06200585f102
+      sha256: "0a279f0707af40c890e80b1e9df8bb761694c074ba7e1d4ab1bc4b728e200b59"
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.2"
+    version: "3.1.3"
   platform_detect:
     dependency: transitive
     description:
@@ -1189,6 +1237,30 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
+  sign_in_with_apple:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple
+      sha256: "0975c23b9f8b30a80e27d5659a75993a093d4cb5f4eb7d23a9ccc586fea634e0"
+      url: "https://pub.dev"
+    source: hosted
+    version: "5.0.0"
+  sign_in_with_apple_platform_interface:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple_platform_interface
+      sha256: a5883edee09ed6be19de19e7d9f618a617fe41a6fa03f76d082dfb787e9ea18d
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
+  sign_in_with_apple_web:
+    dependency: transitive
+    description:
+      name: sign_in_with_apple_web
+      sha256: "44b66528f576e77847c14999d5e881e17e7223b7b0625a185417829e5306f47a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.1"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -1226,6 +1298,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  stream_transform:
+    dependency: transitive
+    description:
+      name: stream_transform
+      sha256: "14a00e794c7c11aa145a170587321aedce29769c08d7f58b1d141da75e3b1c6f"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.1.0"
   string_scanner:
     dependency: transitive
     description:
@@ -1442,6 +1522,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.9.1"
+  wechat_kit:
+    dependency: transitive
+    description:
+      name: wechat_kit
+      sha256: "4608b8f40af0201a324a2d8078c300c3dee85d550dfcb5bdf6811a0949008226"
+      url: "https://pub.dev"
+    source: hosted
+    version: "6.0.1"
   win32:
     dependency: transitive
     description:
