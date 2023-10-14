@@ -548,7 +548,7 @@ class _ZyAmapSendState extends State<ZyAmap> {
   }
 
   void _onAmapLocationOk(Location location) {
-    //同步更新我当前的位置实例
+    //同步更新我当前的位置数据
     _myLocation.updateByJson(location.toJson());
     //相当于点击了我的位置按钮
     _onLocationBtnPressed();

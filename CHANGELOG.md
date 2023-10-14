@@ -1,4 +1,4 @@
-## 1.0.26
+## 1.0.27
 
 - Implemented the ZyThirdSdk class used to encapsulate third-party sdks，Add the zy_amap.dart file to wrap the view of amap.
 - Upgraded some dependent libraries and added amap, wechat, alipay and other libraries.
