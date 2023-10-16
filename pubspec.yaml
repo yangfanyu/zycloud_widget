@@ -41,11 +41,17 @@ dependencies:
   audioplayers_platform_interface: ^6.0.0
   linkify: ^5.0.0
   webrtc_interface: ^1.0.0
+  
+  # -------- Below plugins only support [android, ios, macos, web, windows] platform --------  
+  # extend_part
+  app_links: ^3.4.0
+
   # -------- Below plugins only support [android, ios, windows] platform --------    
   # extend_part
   permission_handler: ^11.0.0
   # extend_part_depend
   permission_handler_platform_interface: ^3.9.0
+  
   # -------- Below plugins only support [android, ios] platform --------    
   # extend_part
   webview_flutter: ^4.2.0
@@ -53,38 +59,34 @@ dependencies:
   webview_flutter_wkwebview: ^3.4.0
   # extend_part_depend
   webview_flutter_platform_interface: ^2.3.0
+  
   # -------- Below plugins only support [android, ios, linux, macos, windows] platform --------  
   # common
   path_provider: ^2.0.0
+  
   # -------- Below plugins only support [android, ios, linux, macos] platform --------    
   # common
-  flutter_local_notifications: ^15.1.0
+  flutter_local_notifications: ^16.1.0
+  
   # -------- Below plugins only support [android, ios, macos, web] platform --------    
   # common
   qr_code_scanner: ^1.0.0
+  
   # -------- Below plugins only support [android, ios, web] platform --------  
   # common
   image_picker: ^1.0.0
+  
   # -------- Below plugins only support [android, ios] platform --------  
   # common
   move_to_background: ^1.0.0
+  
   # -------- Below plugins only support [android] platform --------  
   # common
   flutter_background: ^1.2.0
+  
   # -------- Below plugins full support [all] platforms, but pub.dev only show [ios, linux, macos, windows] platform--------  
   # common
   flutter_quill: ^7.2.0
-
-  # -------- Below plugins is third-party sdks--------  
-  # common
-  flutter_svg: ^2.0.0
-  map_launcher: ^2.4.0
-  amap_flutter_base: ^3.0.0
-  amap_flutter_map: ^3.0.0
-  amap_flutter_location: ^3.0.0
-  alipay_kit: ^6.0.0
-  wechat_kit: ^6.0.0
-  sign_in_with_apple: ^5.0.0
 
 dev_dependencies:
   flutter_test:

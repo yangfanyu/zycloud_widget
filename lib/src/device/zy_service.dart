@@ -87,7 +87,7 @@ class ZyService {
     if (_notificationsPlugin != null) return Future.value(true);
     _notificationsPlugin = FlutterLocalNotificationsPlugin();
     if (androidRequestPermission && ZyDeviceInfo.isAndroid) {
-      _notificationsPlugin!.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestPermission();
+      _notificationsPlugin!.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()?.requestNotificationsPermission();
     }
     return _notificationsPlugin!.initialize(
       InitializationSettings(

@@ -52,9 +52,11 @@ String get linkifyVersion => extendFullDepVersionMap['linkify']!; //该库为flu
 String get webrtcInterfaceVersion => extendFullDepVersionMap['webrtc_interface']!; //该库为flutter_webrtc的依赖库，项目中并未直接导出
 //部分平台扩展库
 final extendPartVersionMap = {
+  'app_links': '',
   'permission_handler': '',
   'webview_flutter': '',
 };
+String get appLinksVersion => extendPartVersionMap['app_links']!;
 String get permissionHandlerVersion => extendPartVersionMap['permission_handler']!;
 String get webviewFlutterVersion => extendPartVersionMap['webview_flutter']!;
 //部分平台扩展库---依赖库
@@ -135,6 +137,9 @@ void main(List<String> arguments) {
       break;
 
     ///extend_part
+    case 'app_links':
+      _generateLibraryForExtendPart$AppLinks(libraryName, rootFolder);
+      break;
     case 'permission_handler':
       _generateLibraryForExtendPart$PermissionHandler(libraryName, rootFolder);
       break;
@@ -142,6 +147,7 @@ void main(List<String> arguments) {
       _generateLibraryForExtendPart$WebviewFlutter(libraryName, rootFolder);
       break;
     case 'extend_part':
+      _generateLibraryForExtendPart$AppLinks('app_links', rootFolder);
       _generateLibraryForExtendPart$PermissionHandler('permission_handler', rootFolder);
       _generateLibraryForExtendPart$WebviewFlutter('webview_flutter', rootFolder);
       break;
@@ -764,6 +770,41 @@ void _generateLibraryForExtendFull$UrlLauncher(String libraryName, String rootFo
         'convertConfiguration',
         'convertLaunchMode',
         'pushRouteToFrameworkFunction',
+      ],
+    },
+  );
+  coder.logVmLibrarydErrors();
+}
+
+void _generateLibraryForExtendPart$AppLinks(String libraryName, String rootFolder) {
+  final coder = EasyCoder(
+    config: EasyCoderConfig(
+      logLevel: EasyLogLevel.debug,
+      absFolder: '$rootFolder/bridge/extend_part',
+    ),
+  );
+  coder.generateVmLibraries(
+    outputFile: '${libraryName}_library',
+    className: '${libraryName.toPascalCase}Library',
+    classDesc: '$libraryName库桥接类',
+    importList: [
+      'package:app_links/app_links.dart',
+    ],
+    libraryPaths: [
+      '$machineHome/.pub-cache/hosted/pub.dev/$appLinksVersion/lib',
+    ],
+    privatePaths: [
+      '$flutterHome/bin/cache/dart-sdk/lib',
+      '$flutterHome/bin/cache/pkg/sky_engine/lib',
+      '$flutterHome/packages/flutter/lib',
+      '$machineHome/.pub-cache/hosted/pub.dev/$appLinksVersion/lib',
+      '$machineHome/.pub-cache/hosted/pub.dev/$pluginPlatformInterfaceVersion/lib',
+    ],
+    excludePathClass: {
+      '$machineHome/.pub-cache/hosted/pub.dev/$appLinksVersion/lib': [
+        //找不到的class
+        'AppLinksMethodChannel',
+        'AppLinksPlatform',
       ],
     },
   );

@@ -13,49 +13,6 @@ import 'package:zycloud_widget/zycloud_widget.dart';
 ///zywidget库桥接类
 ///
 class ZywidgetLibrary {
-  ///class ZyAmap
-  static final classZyAmap = VmClass<ZyAmap>(
-    identifier: 'ZyAmap',
-    superclassNames: ['Object', 'Diagnosticable', 'DiagnosticableTree', 'Widget', 'StatefulWidget'],
-    externalProxyMap: {
-      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => ZyAmap.new, externalStaticFunctionCaller: ({key, type, title = '', location, onLocationUpdate, onSendBtnPressed}) => ZyAmap.new(key: key, type: type, title: title, location: location, onLocationUpdate: onLocationUpdate == null ? null : (b0) => onLocationUpdate(b0), onSendBtnPressed: onSendBtnPressed == null ? null : (b0, b1, b2) => onSendBtnPressed(b0, b1, b2))),
-      'createElement': VmProxy(identifier: 'createElement', externalInstancePropertyReader: (ZyAmap instance) => instance.createElement),
-      'createState': VmProxy(identifier: 'createState', externalInstancePropertyReader: (ZyAmap instance) => instance.createState),
-      'debugDescribeChildren': VmProxy(identifier: 'debugDescribeChildren', externalInstancePropertyReader: (ZyAmap instance) => instance.debugDescribeChildren),
-      'debugFillProperties': VmProxy(identifier: 'debugFillProperties', externalInstancePropertyReader: (ZyAmap instance) => instance.debugFillProperties),
-      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (ZyAmap instance) => instance.hashCode),
-      'key': VmProxy(identifier: 'key', externalInstancePropertyReader: (ZyAmap instance) => instance.key),
-      'location': VmProxy(identifier: 'location', externalInstancePropertyReader: (ZyAmap instance) => instance.location),
-      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (ZyAmap instance) => instance.noSuchMethod),
-      'onLocationUpdate': VmProxy(identifier: 'onLocationUpdate', externalInstancePropertyReader: (ZyAmap instance) => instance.onLocationUpdate),
-      'onSendBtnPressed': VmProxy(identifier: 'onSendBtnPressed', externalInstancePropertyReader: (ZyAmap instance) => instance.onSendBtnPressed),
-      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (ZyAmap instance) => instance.runtimeType),
-      'title': VmProxy(identifier: 'title', externalInstancePropertyReader: (ZyAmap instance) => instance.title),
-      'toDiagnosticsNode': VmProxy(identifier: 'toDiagnosticsNode', externalInstancePropertyReader: (ZyAmap instance) => instance.toDiagnosticsNode),
-      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (ZyAmap instance) => instance.toString),
-      'toStringDeep': VmProxy(identifier: 'toStringDeep', externalInstancePropertyReader: (ZyAmap instance) => instance.toStringDeep),
-      'toStringShallow': VmProxy(identifier: 'toStringShallow', externalInstancePropertyReader: (ZyAmap instance) => instance.toStringShallow),
-      'toStringShort': VmProxy(identifier: 'toStringShort', externalInstancePropertyReader: (ZyAmap instance) => instance.toStringShort),
-      'type': VmProxy(identifier: 'type', externalInstancePropertyReader: (ZyAmap instance) => instance.type),
-    },
-  );
-
-  ///class ZyAmapType
-  static final classZyAmapType = VmClass<ZyAmapType>(
-    identifier: 'ZyAmapType',
-    superclassNames: ['Object', 'Enum'],
-    externalProxyMap: {
-      'locationSend': VmProxy(identifier: 'locationSend', externalStaticPropertyReader: () => ZyAmapType.locationSend),
-      'locationView': VmProxy(identifier: 'locationView', externalStaticPropertyReader: () => ZyAmapType.locationView),
-      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (ZyAmapType instance) => instance.hashCode),
-      'index': VmProxy(identifier: 'index', externalInstancePropertyReader: (ZyAmapType instance) => instance.index),
-      'name': VmProxy(identifier: 'name', externalInstancePropertyReader: (ZyAmapType instance) => instance.name),
-      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (ZyAmapType instance) => instance.noSuchMethod),
-      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (ZyAmapType instance) => instance.runtimeType),
-      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (ZyAmapType instance) => instance.toString),
-    },
-  );
-
   ///class ZyAnchor
   static final classZyAnchor = VmClass<ZyAnchor>(
     identifier: 'ZyAnchor',
@@ -2221,37 +2178,6 @@ class ZywidgetLibrary {
     },
   );
 
-  ///class ZyThirdSdk
-  static final classZyThirdSdk = VmClass<ZyThirdSdk>(
-    identifier: 'ZyThirdSdk',
-    superclassNames: ['Object'],
-    externalProxyMap: {
-      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => ZyThirdSdk.new),
-      'countDistance': VmProxy(identifier: 'countDistance', externalStaticPropertyReader: () => ZyThirdSdk.countDistance),
-      'isAlipayInstalled': VmProxy(identifier: 'isAlipayInstalled', externalStaticPropertyReader: () => ZyThirdSdk.isAlipayInstalled),
-      'isAlipaySupported': VmProxy(identifier: 'isAlipaySupported', externalStaticPropertyReader: () => ZyThirdSdk.isAlipaySupported),
-      'isAmapSupported': VmProxy(identifier: 'isAmapSupported', externalStaticPropertyReader: () => ZyThirdSdk.isAmapSupported),
-      'isWechatInstalled': VmProxy(identifier: 'isWechatInstalled', externalStaticPropertyReader: () => ZyThirdSdk.isWechatInstalled),
-      'isWechatSupported': VmProxy(identifier: 'isWechatSupported', externalStaticPropertyReader: () => ZyThirdSdk.isWechatSupported),
-      'register': VmProxy(identifier: 'register', externalStaticPropertyReader: () => ZyThirdSdk.register),
-      'dispose': VmProxy(identifier: 'dispose', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.dispose),
-      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.hashCode),
-      'init': VmProxy(identifier: 'init', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.init, externalInstanceFunctionCaller: (ZyThirdSdk instance, {onAmapLocationOk, onWechatAuthOk, onWechatPayOk, onAlipayAuthOk, onAlipayPayOk, onAppleAuthOk}) => instance.init(onAmapLocationOk: onAmapLocationOk == null ? null : (b0) => onAmapLocationOk(b0), onWechatAuthOk: onWechatAuthOk == null ? null : (b0) => onWechatAuthOk(b0), onWechatPayOk: onWechatPayOk, onAlipayAuthOk: onAlipayAuthOk == null ? null : (b0) => onAlipayAuthOk(b0), onAlipayPayOk: onAlipayPayOk, onAppleAuthOk: onAppleAuthOk == null ? null : (b0, b1, b2, b3) => onAppleAuthOk(b0, b1, b2, b3))),
-      'ipAmapLocation': VmProxy(identifier: 'ipAmapLocation', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.ipAmapLocation),
-      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.noSuchMethod),
-      'poiAmapSearch': VmProxy(identifier: 'poiAmapSearch', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.poiAmapSearch),
-      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.runtimeType),
-      'startAlipayAuth': VmProxy(identifier: 'startAlipayAuth', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.startAlipayAuth),
-      'startAlipayPay': VmProxy(identifier: 'startAlipayPay', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.startAlipayPay),
-      'startAmapLocation': VmProxy(identifier: 'startAmapLocation', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.startAmapLocation),
-      'startAppleAuth': VmProxy(identifier: 'startAppleAuth', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.startAppleAuth),
-      'startWechatAuth': VmProxy(identifier: 'startWechatAuth', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.startWechatAuth),
-      'startWechatPay': VmProxy(identifier: 'startWechatPay', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.startWechatPay),
-      'stopAmapLocation': VmProxy(identifier: 'stopAmapLocation', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.stopAmapLocation),
-      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (ZyThirdSdk instance) => instance.toString),
-    },
-  );
-
   ///class ZyView
   static final classZyView = VmClass<ZyView>(
     identifier: 'ZyView',
@@ -2460,8 +2386,6 @@ class ZywidgetLibrary {
 
   ///all class list
   static final libraryClassList = <VmClass>[
-    classZyAmap,
-    classZyAmapType,
     classZyAnchor,
     classZyApp,
     classZyAppLocalizations,
@@ -2535,7 +2459,6 @@ class ZywidgetLibrary {
     classZyTextureWall,
     classZyTextureWaterfall,
     classZyTextureWidget,
-    classZyThirdSdk,
     classZyView,
     classZyWatch,
     classZyWatchController,

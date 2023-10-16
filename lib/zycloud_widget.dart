@@ -3,7 +3,6 @@ library zycloud_widget;
 export 'src/device/zy_device.dart';
 export 'src/device/zy_service.dart';
 export 'src/device/zy_storage.dart';
-export 'src/device/zy_thirdsdk.dart';
 
 export 'src/engine/zy_anchor.dart';
 export 'src/engine/zy_merger.dart';
@@ -29,7 +28,6 @@ export 'src/launch/zy_view.dart';
 export 'src/launch/zy_watch.dart';
 export 'src/launch/zy_window.dart';
 
-export 'src/widget/zy_amap.dart';
 export 'src/widget/zy_avator.dart';
 export 'src/widget/zy_badge.dart';
 export 'src/widget/zy_border.dart';
