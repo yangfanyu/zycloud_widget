@@ -1220,7 +1220,6 @@ class ZywidgetLibrary {
       'codeElementColor': VmProxy(identifier: 'codeElementColor', externalInstancePropertyReader: (ZyQrcode instance) => instance.codeElementColor),
       'codeErrorCorrectLevel': VmProxy(identifier: 'codeErrorCorrectLevel', externalInstancePropertyReader: (ZyQrcode instance) => instance.codeErrorCorrectLevel),
       'codeRoundEdges': VmProxy(identifier: 'codeRoundEdges', externalInstancePropertyReader: (ZyQrcode instance) => instance.codeRoundEdges),
-      'codeTypeNumber': VmProxy(identifier: 'codeTypeNumber', externalInstancePropertyReader: (ZyQrcode instance) => instance.codeTypeNumber),
       'createElement': VmProxy(identifier: 'createElement', externalInstancePropertyReader: (ZyQrcode instance) => instance.createElement),
       'data': VmProxy(identifier: 'data', externalInstancePropertyReader: (ZyQrcode instance) => instance.data),
       'debugDescribeChildren': VmProxy(identifier: 'debugDescribeChildren', externalInstancePropertyReader: (ZyQrcode instance) => instance.debugDescribeChildren),

@@ -333,10 +333,10 @@ packages:
     dependency: transitive
     description:
       name: file_picker
-      sha256: be325344c1f3070354a1d84a231a1ba75ea85d413774ec4bdf444c023342e030
+      sha256: "903dd4ba13eae7cef64acc480e91bf54c3ddd23b5b90b639c170f3911e489620"
       url: "https://pub.dev"
     source: hosted
-    version: "5.5.0"
+    version: "6.0.0"
   file_selector_linux:
     dependency: transitive
     description:
@@ -503,10 +503,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_quill
-      sha256: a06604f1fc9b7a023090d8fd86043a63599ab12c4207323869793d2db9ce3df6
+      sha256: "7e3459678362a2e2cc3645df065a357ed60ff5e7863127046f5a2ca548cbf6f5"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.9"
+    version: "7.4.11"
   flutter_slidable:
     dependency: transitive
     description:
@@ -1065,10 +1065,10 @@ packages:
     dependency: transitive
     description:
       name: pretty_qr_code
-      sha256: ea7ccb3069e0f5b89b441449b9ec10f4148ddda7a4bef89a130d2ebdaa0be647
+      sha256: "799fa8d5c605028302cb7debbf3f180ce56678c4927fb2ecc4b174a3bee526d6"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.3"
+    version: "3.0.0"
   pub_semver:
     dependency: transitive
     description:
@@ -1504,7 +1504,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.27"
+    version: "1.0.29"
 sdks:
   dart: ">=3.1.0 <4.0.0"
   flutter: ">=3.13.0"

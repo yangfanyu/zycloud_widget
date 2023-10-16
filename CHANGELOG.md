@@ -1,3 +1,7 @@
+## 1.0.29
+
+- Added ZyApp.forEach method, and updated dependent libraries and bridging libraries.
+  
 ## 1.0.27
 
 - Implemented the ZyThirdSdk class used to encapsulate third-party sdks，Add the zy_amap.dart file to wrap the view of amap.

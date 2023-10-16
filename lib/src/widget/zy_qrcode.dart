@@ -34,17 +34,14 @@ class ZyQrcode extends StatelessWidget {
   ///内边距离
   final EdgeInsets boxPadding;
 
-  ///二维码：内容颜色
-  final Color codeElementColor;
-
   ///二维码：容错级别（0: Medium, 1: Low, 2: High, 3: Quartile）
   final int codeErrorCorrectLevel;
 
+  ///二维码：内容颜色
+  final Color codeElementColor;
+
   ///二维码：圆滑模式
   final bool codeRoundEdges;
-
-  ///二维码：生成次数（1 到 40 或 null）
-  final int? codeTypeNumber;
 
   const ZyQrcode({
     super.key,
@@ -57,10 +54,9 @@ class ZyQrcode extends StatelessWidget {
     this.boxRadius = 10,
     this.boxOffsetB = 16,
     this.boxPadding = const EdgeInsets.only(top: 50, bottom: 40, left: 20, right: 20),
-    this.codeElementColor = Colors.black,
     this.codeErrorCorrectLevel = 3,
+    this.codeElementColor = Colors.black,
     this.codeRoundEdges = true,
-    this.codeTypeNumber = 3,
   });
 
   @override
@@ -101,13 +97,13 @@ class ZyQrcode extends StatelessWidget {
                   Stack(
                     alignment: Alignment.center,
                     children: [
-                      PrettyQr(
-                        size: codeSize,
-                        data: data,
-                        elementColor: codeElementColor,
-                        errorCorrectLevel: codeErrorCorrectLevel,
-                        roundEdges: codeRoundEdges,
-                        typeNumber: codeTypeNumber,
+                      SizedBox.square(
+                        dimension: codeSize,
+                        child: PrettyQrView.data(
+                          data: data,
+                          errorCorrectLevel: codeErrorCorrectLevel,
+                          decoration: PrettyQrDecoration(shape: PrettyQrSmoothSymbol(color: codeElementColor, roundFactor: codeRoundEdges ? 1 : 0)),
+                        ),
                       ),
                       logo ?? const SizedBox(),
                     ],

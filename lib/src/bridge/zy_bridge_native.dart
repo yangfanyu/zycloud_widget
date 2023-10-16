@@ -16,6 +16,7 @@ import 'extend_full/scrollable_positioned_list_library.dart';
 import 'extend_full/url_launcher_library.dart';
 
 //extend_part
+import 'extend_part/app_links_library.dart';
 import 'extend_part/permission_handler_library.dart';
 import 'extend_part/webview_flutter_library.dart';
 
@@ -53,6 +54,7 @@ class ZyBridge {
     ...ScrollablePositionedListLibrary.libraryClassList,
     ...UrlLauncherLibrary.libraryClassList,
     //extend_part
+    ...AppLinksLibrary.libraryClassList,
     ...PermissionHandlerLibrary.libraryClassList,
     ...WebviewFlutterLibrary.libraryClassList,
   ];
@@ -69,6 +71,7 @@ class ZyBridge {
     ...ScrollablePositionedListLibrary.libraryProxyList,
     ...UrlLauncherLibrary.libraryProxyList,
     //extend_part
+    ...AppLinksLibrary.libraryProxyList,
     ...PermissionHandlerLibrary.libraryProxyList,
     ...WebviewFlutterLibrary.libraryProxyList,
   ];
