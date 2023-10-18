@@ -503,10 +503,10 @@ packages:
     dependency: transitive
     description:
       name: flutter_quill
-      sha256: "7e3459678362a2e2cc3645df065a357ed60ff5e7863127046f5a2ca548cbf6f5"
+      sha256: "30f891bfe22c089b10cd4bcabefd4ef64c07370819b9fdf1a6fcf42077cbcbce"
       url: "https://pub.dev"
     source: hosted
-    version: "7.4.11"
+    version: "7.4.14"
   flutter_slidable:
     dependency: transitive
     description:
@@ -1494,17 +1494,17 @@ packages:
     dependency: "direct main"
     description:
       name: zycloud_client
-      sha256: f1e8d92e07f259733c6ba312e5d4087820645cbbf7eb586ea9d562d3edac3786
+      sha256: "679862d4c6b916dcdfb83ca07774c1e3bb52387b8600a2b9b4134108578b5db1"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.10"
+    version: "1.0.12"
   zycloud_widget:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.0.29"
+    version: "1.0.30"
 sdks:
   dart: ">=3.1.0 <4.0.0"
   flutter: ">=3.13.0"

@@ -1,6 +1,10 @@
+## 1.0.31
+
+- Upgrade dependent libraries and update bridge libraries.
+  
 ## 1.0.29
 
-- Added ZyApp.forEach method, and updated dependent libraries and bridging libraries.
+- Removed third-party sdk libraries and their wrapper classes, added the app_links library, and updated the bridge library.
   
 ## 1.0.27
 
