@@ -1,3 +1,7 @@
+## 1.0.32
+
+- Add version constraint information to README ,Upgrade dependent libraries and update bridge libraries
+
 ## 1.0.31
 
 - Upgrade dependent libraries and update bridge libraries.
