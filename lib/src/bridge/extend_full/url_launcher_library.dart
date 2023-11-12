@@ -20,6 +20,7 @@ class UrlLauncherLibrary {
     externalProxyMap: {
       'externalApplication': VmProxy(identifier: 'externalApplication', externalStaticPropertyReader: () => LaunchMode.externalApplication),
       'externalNonBrowserApplication': VmProxy(identifier: 'externalNonBrowserApplication', externalStaticPropertyReader: () => LaunchMode.externalNonBrowserApplication),
+      'inAppBrowserView': VmProxy(identifier: 'inAppBrowserView', externalStaticPropertyReader: () => LaunchMode.inAppBrowserView),
       'inAppWebView': VmProxy(identifier: 'inAppWebView', externalStaticPropertyReader: () => LaunchMode.inAppWebView),
       'platformDefault': VmProxy(identifier: 'platformDefault', externalStaticPropertyReader: () => LaunchMode.platformDefault),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (LaunchMode instance) => instance.hashCode),
@@ -63,5 +64,7 @@ class UrlLauncherLibrary {
     VmProxy(identifier: 'launch', externalStaticPropertyReader: () => launch),
     VmProxy(identifier: 'launchUrl', externalStaticPropertyReader: () => launchUrl),
     VmProxy(identifier: 'launchUrlString', externalStaticPropertyReader: () => launchUrlString),
+    VmProxy(identifier: 'supportsCloseForLaunchMode', externalStaticPropertyReader: () => supportsCloseForLaunchMode),
+    VmProxy(identifier: 'supportsLaunchMode', externalStaticPropertyReader: () => supportsLaunchMode),
   ];
 }

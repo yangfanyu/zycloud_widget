@@ -164,22 +164,29 @@ void _initDependenciesVersion() {
   final pubspecLock = file.readAsStringSync().loadPubspecLockFromYaml();
   logger.logDebug(['Loaded pubspec.lock with', pubspecLock.packages.length, 'package dependencies.']);
 
+  final allYamlVersions = <String, String>{};
   for (var item in pubspecLock.packages) {
     final packageName = item.package();
     final packageVersion = item.version();
     final nameVersion = '$packageName-$packageVersion';
     if (coreVersionMap.containsKey(packageName)) {
       coreVersionMap[packageName] = nameVersion;
+      allYamlVersions[packageName] = packageVersion;
     } else if (extendFullVersionMap.containsKey(packageName)) {
       extendFullVersionMap[packageName] = nameVersion;
+      allYamlVersions[packageName] = packageVersion;
     } else if (extendFullDepVersionMap.containsKey(packageName)) {
       extendFullDepVersionMap[packageName] = nameVersion;
+      allYamlVersions[packageName] = packageVersion;
     } else if (extendPartVersionMap.containsKey(packageName)) {
       extendPartVersionMap[packageName] = nameVersion;
+      allYamlVersions[packageName] = packageVersion;
     } else if (extendPartDepVersionMap.containsKey(packageName)) {
       extendPartDepVersionMap[packageName] = nameVersion;
+      allYamlVersions[packageName] = packageVersion;
     } else if (platformVersionMap.containsKey(packageName)) {
       platformVersionMap[packageName] = nameVersion;
+      allYamlVersions[packageName] = packageVersion;
     }
   }
   const encoder = JsonEncoder.withIndent('  ');
@@ -189,6 +196,7 @@ void _initDependenciesVersion() {
   logger.logInfo(['extendPartVersionMap =>', encoder.convert(extendPartVersionMap)]);
   logger.logInfo(['extendPartDepVersionMap =>', encoder.convert(extendPartDepVersionMap)]);
   logger.logInfo(['platformVersionMap =>', encoder.convert(platformVersionMap)]);
+  logger.logInfo(['allYamlVersions =>\n', allYamlVersions.keys.map((e) => '  $e: ${allYamlVersions[e]}').join('\n')]);
 }
 
 void _generateLibraryForCore$Dart(String libraryName, String rootFolder) {
