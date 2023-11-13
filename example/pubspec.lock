@@ -1149,22 +1149,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.4.1"
-  shelf_cors_headers:
-    dependency: transitive
-    description:
-      name: shelf_cors_headers
-      sha256: a127c80f99bbef3474293db67a7608e3a0f1f0fcdb171dad77fa9bd2cd123ae4
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.1.5"
   shelf_easy:
     dependency: "direct main"
     description:
       name: shelf_easy
-      sha256: ece0b50dda0b0d6cdfdd1f917b8e610797660a08aadb9b8ef111538bcb8e860c
+      sha256: "093bb46d12f7d1cb4503a7d7bbfe738f17ac48442a957b697b0ac265050a4e6c"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.9"
+    version: "3.1.0"
+  shelf_gzip:
+    dependency: transitive
+    description:
+      name: shelf_gzip
+      sha256: "15c424218945d808c75aa5c500c81cb8ae6bc6730925dbbc8eb86b8c09da228a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.0.1"
   shelf_multipart:
     dependency: transitive
     description:
