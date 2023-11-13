@@ -29,7 +29,7 @@ ZyCloud服务的基础功能永久免费。服务目的是为AOT环境下的Dart
   permission_handler_platform_interface: 3.12.0
   plugin_platform_interface: 2.1.6
   scrollable_positioned_list: 0.3.8
-  shelf_easy: 3.0.9
+  shelf_easy: 3.1.0
   url_launcher: 6.2.1
   webrtc_interface: 1.1.2
   webview_flutter: 4.4.2
