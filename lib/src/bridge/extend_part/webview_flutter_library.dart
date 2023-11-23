@@ -13,6 +13,23 @@ import 'package:webview_flutter_platform_interface/webview_flutter_platform_inte
 ///webview_flutter库桥接类
 ///
 class WebviewFlutterLibrary {
+  ///class HttpAuthRequest
+  static final classHttpAuthRequest = VmClass<HttpAuthRequest>(
+    identifier: 'HttpAuthRequest',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => HttpAuthRequest.new, externalStaticFunctionCaller: ({onProceed, onCancel, host = '', realm}) => HttpAuthRequest.new(onProceed: (b0) => onProceed(b0), onCancel: onCancel, host: host, realm: realm)),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.hashCode),
+      'host': VmProxy(identifier: 'host', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.host),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.noSuchMethod),
+      'onCancel': VmProxy(identifier: 'onCancel', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.onCancel),
+      'onProceed': VmProxy(identifier: 'onProceed', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.onProceed),
+      'realm': VmProxy(identifier: 'realm', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.realm),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (HttpAuthRequest instance) => instance.toString),
+    },
+  );
+
   ///class HttpResponseError
   static final classHttpResponseError = VmClass<HttpResponseError>(
     identifier: 'HttpResponseError',
@@ -202,6 +219,7 @@ class WebviewFlutterLibrary {
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.noSuchMethod),
       'params': VmProxy(identifier: 'params', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.params),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.runtimeType),
+      'setOnHttpAuthRequest': VmProxy(identifier: 'setOnHttpAuthRequest', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.setOnHttpAuthRequest, externalInstanceFunctionCaller: (PlatformNavigationDelegate instance, a0) => instance.setOnHttpAuthRequest((b0) => a0(b0))),
       'setOnHttpError': VmProxy(identifier: 'setOnHttpError', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.setOnHttpError, externalInstanceFunctionCaller: (PlatformNavigationDelegate instance, a0) => instance.setOnHttpError((b0) => a0(b0))),
       'setOnNavigationRequest': VmProxy(identifier: 'setOnNavigationRequest', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.setOnNavigationRequest, externalInstanceFunctionCaller: (PlatformNavigationDelegate instance, a0) => instance.setOnNavigationRequest((b0) => a0(b0))),
       'setOnPageFinished': VmProxy(identifier: 'setOnPageFinished', externalInstancePropertyReader: (PlatformNavigationDelegate instance) => instance.setOnPageFinished, externalInstanceFunctionCaller: (PlatformNavigationDelegate instance, a0) => instance.setOnPageFinished((b0) => a0(b0))),
@@ -501,6 +519,21 @@ class WebviewFlutterLibrary {
     },
   );
 
+  ///class WebViewCredential
+  static final classWebViewCredential = VmClass<WebViewCredential>(
+    identifier: 'WebViewCredential',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => WebViewCredential.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (WebViewCredential instance) => instance.hashCode),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (WebViewCredential instance) => instance.noSuchMethod),
+      'password': VmProxy(identifier: 'password', externalInstancePropertyReader: (WebViewCredential instance) => instance.password),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (WebViewCredential instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (WebViewCredential instance) => instance.toString),
+      'user': VmProxy(identifier: 'user', externalInstancePropertyReader: (WebViewCredential instance) => instance.user),
+    },
+  );
+
   ///class WebViewPermissionRequest
   static final classWebViewPermissionRequest = VmClass<WebViewPermissionRequest>(
     identifier: 'WebViewPermissionRequest',
@@ -579,6 +612,7 @@ class WebviewFlutterLibrary {
 
   ///all class list
   static final libraryClassList = <VmClass>[
+    classHttpAuthRequest,
     classHttpResponseError,
     classJavaScriptChannelParams,
     classJavaScriptConsoleMessage,
@@ -605,6 +639,7 @@ class WebviewFlutterLibrary {
     classWebViewController,
     classWebViewCookie,
     classWebViewCookieManager,
+    classWebViewCredential,
     classWebViewPermissionRequest,
     classWebViewPermissionResourceType,
     classWebViewPlatform,

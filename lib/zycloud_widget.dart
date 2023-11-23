@@ -46,4 +46,3 @@ export 'src/widget/zy_picture.dart';
 export 'src/widget/zy_qrcode.dart';
 export 'src/widget/zy_qrscan.dart';
 export 'src/widget/zy_sheet.dart';
-export 'src/widget/zy_stroke_text.dart';

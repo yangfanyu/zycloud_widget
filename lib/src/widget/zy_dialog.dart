@@ -67,8 +67,8 @@ class ZyDialog extends StatelessWidget {
     final themeData = Theme.of(context);
     final boxPadding = padding.copyWith(top: title == null ? padding.vertical : padding.top, bottom: title == null ? padding.vertical : padding.bottom * 1.5);
     final textStyle = themeData.textTheme.titleMedium;
-    return WillPopScope(
-      onWillPop: () async => false, //拦截返回按钮
+    return PopScope(
+      canPop: false, //拦截返回按钮
       child: SafeArea(
         child: AlertDialog(
           clipBehavior: Clip.hardEdge,

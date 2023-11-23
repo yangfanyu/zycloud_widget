@@ -20,7 +20,7 @@ dependencies:
   # -------- Below plugins full support [all] platforms --------  
   # common
   device_info_plus: ^9.0.0
-  package_info_plus: ^4.0.0
+  package_info_plus: ^5.0.0
   platform_device_id: ^1.0.0
   hive: ^2.2.0
   image: ^4.0.0
@@ -50,7 +50,7 @@ dependencies:
   # extend_part
   permission_handler: ^11.0.0
   # extend_part_depend
-  permission_handler_platform_interface: ^3.9.0
+  permission_handler_platform_interface: ^4.0.0
   
   # -------- Below plugins only support [android, ios] platform --------    
   # extend_part
@@ -86,7 +86,7 @@ dependencies:
   
   # -------- Below plugins full support [all] platforms, but pub.dev only show [ios, linux, macos, windows] platform--------  
   # common
-  flutter_quill: 7.4.16
+  flutter_quill: ^8.6.0
 
 dev_dependencies:
   flutter_test:

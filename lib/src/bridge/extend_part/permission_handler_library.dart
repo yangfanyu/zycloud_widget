@@ -30,7 +30,7 @@ class PermissionHandlerLibrary {
       'bluetoothScan': VmProxy(identifier: 'bluetoothScan', externalStaticPropertyReader: () => Permission.bluetoothScan),
       'calendar': VmProxy(identifier: 'calendar', externalStaticPropertyReader: () => Permission.calendar),
       'calendarFullAccess': VmProxy(identifier: 'calendarFullAccess', externalStaticPropertyReader: () => Permission.calendarFullAccess),
-      'calendarReadOnly': VmProxy(identifier: 'calendarReadOnly', externalStaticPropertyReader: () => Permission.calendarReadOnly),
+      'calendarWriteOnly': VmProxy(identifier: 'calendarWriteOnly', externalStaticPropertyReader: () => Permission.calendarWriteOnly),
       'camera': VmProxy(identifier: 'camera', externalStaticPropertyReader: () => Permission.camera),
       'contacts': VmProxy(identifier: 'contacts', externalStaticPropertyReader: () => Permission.contacts),
       'criticalAlerts': VmProxy(identifier: 'criticalAlerts', externalStaticPropertyReader: () => Permission.criticalAlerts),

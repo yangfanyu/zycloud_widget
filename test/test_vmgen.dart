@@ -365,13 +365,6 @@ void _generateLibraryForCore$ZyClient(String libraryName, String rootFolder) {
       '$machineHome/.pub-cache/hosted/pub.dev/$bsonVersion/lib',
       '$machineHome/.pub-cache/hosted/pub.dev/$shelfEasyVersion/lib',
     ],
-    //不需要的类型
-    excludePathClass: {
-      '$machineHome/.pub-cache/hosted/pub.dev/$zycloudClientVersion/lib': [
-        'CmdClient',
-        'MenuItem',
-      ],
-    },
     //要导出的类型，与zycloud_client.dart文件对应
     includePathClass: {
       '$machineHome/.pub-cache/hosted/pub.dev/$httpVersion/lib': [

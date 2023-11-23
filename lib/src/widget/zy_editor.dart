@@ -1,7 +1,6 @@
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_quill/extensions.dart' as base;
 import 'package:flutter_quill/flutter_quill.dart';
 
 import 'zy_border.dart';
@@ -103,7 +102,7 @@ class ZyEditor extends StatefulWidget {
   final bool imageButtonEnable;
 
   ///图片按钮的提示
-  final String? imageButtonTooltip;
+  final String imageButtonTooltip;
 
   ///格式化网络链接
   final String Function(String val)? onImageFormatUrl;
@@ -170,7 +169,7 @@ class ZyEditor extends StatefulWidget {
 
     ///自定义按钮配置信息
     this.imageButtonEnable = true,
-    this.imageButtonTooltip,
+    this.imageButtonTooltip = 'Upload image',
     this.onImageFormatUrl,
     this.onImagePickCallback,
   });
@@ -287,19 +286,23 @@ class _ZyEditorState extends State<ZyEditor> {
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     if (widget.bodyReadOnly) {
-      return QuillEditor(
-        controller: _editorController._quillController,
-        focusNode: _editorController._focusNode,
-        scrollController: _editorController._scrollController,
-        scrollable: widget.bodyScrollable,
-        padding: widget.bodyPadding,
-        autoFocus: widget.bodyAutoFocus,
-        readOnly: widget.bodyReadOnly,
-        expands: widget.bodyExpands,
-        showCursor: widget.bodyShowCursor,
-        placeholder: widget.bodyPlaceholder,
-        scrollPhysics: widget.bodyScrollPhysics,
-        embedBuilders: [_ZyEditorImageEmbedBuilder(onImageFormatUrl: widget.onImageFormatUrl)],
+      return QuillProvider(
+        configurations: QuillConfigurations(controller: _editorController._quillController),
+        child: QuillEditor(
+          configurations: QuillEditorConfigurations(
+            scrollable: widget.bodyScrollable,
+            padding: widget.bodyPadding,
+            autoFocus: widget.bodyAutoFocus,
+            readOnly: widget.bodyReadOnly,
+            expands: widget.bodyExpands,
+            showCursor: widget.bodyShowCursor,
+            placeholder: widget.bodyPlaceholder,
+            scrollPhysics: widget.bodyScrollPhysics,
+            embedBuilders: [_ZyEditorImageEmbedBuilder(onImageFormatUrl: widget.onImageFormatUrl)],
+          ),
+          focusNode: _editorController._focusNode,
+          scrollController: _editorController._scrollController,
+        ),
       );
     } else {
       return Container(
@@ -314,77 +317,86 @@ class _ZyEditorState extends State<ZyEditor> {
             borderColor: _editorController._focusNode.hasFocus ? themeData.colorScheme.primary : ZyBorder.getBorderColorBold(themeData),
           ),
         ),
-        child: Column(
-          verticalDirection: widget.boxDirection,
-          children: [
-            Container(
-              color: widget.barColor,
-              margin: widget.barPadding,
-              child: QuillToolbar.basic(
-                controller: _editorController._quillController,
-                color: Colors.transparent,
-                iconTheme: QuillIconTheme(iconSelectedFillColor: themeData.colorScheme.primary, iconUnselectedFillColor: Colors.transparent),
-                afterButtonPressed: () => _editorController._focusNode.requestFocus(), //点击工具栏按钮后，非移动平台会失去焦点，这里重新获取
-                axis: widget.axis,
-                toolbarIconSize: widget.toolbarIconSize,
-                toolbarSectionSpacing: widget.toolbarSectionSpacing,
-                toolbarIconAlignment: widget.toolbarIconAlignment,
-                toolbarIconCrossAlignment: widget.toolbarIconCrossAlignment,
-                multiRowsDisplay: widget.multiRowsDisplay,
-                showDividers: widget.showDividers,
-                showFontFamily: widget.showFontFamily,
-                showFontSize: widget.showFontSize,
-                showBoldButton: widget.showBoldButton,
-                showItalicButton: widget.showItalicButton,
-                showSmallButton: widget.showSmallButton,
-                showUnderLineButton: widget.showUnderLineButton,
-                showStrikeThrough: widget.showStrikeThrough,
-                showInlineCode: widget.showInlineCode,
-                showColorButton: widget.showColorButton,
-                showBackgroundColorButton: widget.showBackgroundColorButton,
-                showClearFormat: widget.showClearFormat,
-                showAlignmentButtons: widget.showAlignmentButtons,
-                showLeftAlignment: widget.showLeftAlignment,
-                showCenterAlignment: widget.showCenterAlignment,
-                showRightAlignment: widget.showRightAlignment,
-                showJustifyAlignment: widget.showJustifyAlignment,
-                showHeaderStyle: widget.showHeaderStyle,
-                showListNumbers: widget.showListNumbers,
-                showListBullets: widget.showListBullets,
-                showListCheck: widget.showListCheck,
-                showCodeBlock: widget.showCodeBlock,
-                showQuote: widget.showQuote,
-                showIndent: widget.showIndent,
-                showLink: widget.showLink,
-                showUndo: widget.showUndo,
-                showRedo: widget.showRedo,
-                showDirection: widget.showDirection,
-                showSearchButton: widget.showSearchButton,
-                showSubscript: widget.showSubscript,
-                showSuperscript: widget.showSuperscript,
-                embedButtons: _buildCustomEmbedButtons(themeData),
+        child: QuillProvider(
+          configurations: QuillConfigurations(controller: _editorController._quillController),
+          child: Column(
+            verticalDirection: widget.boxDirection,
+            children: [
+              Container(
+                color: widget.barColor,
+                margin: widget.barPadding,
+                child: QuillToolbar(
+                  configurations: QuillToolbarConfigurations(
+                    color: Colors.transparent,
+                    axis: widget.axis,
+                    buttonOptions: QuillToolbarButtonOptions(
+                      base: QuillToolbarBaseButtonOptions(
+                        iconTheme: QuillIconTheme(iconSelectedFillColor: themeData.colorScheme.primary, iconUnselectedFillColor: Colors.transparent),
+                        globalIconSize: widget.toolbarIconSize,
+                        afterButtonPressed: () => _editorController._focusNode.requestFocus(), //点击工具栏按钮后，非移动平台会失去焦点，这里重新获取
+                      ),
+                    ),
+                    toolbarSectionSpacing: widget.toolbarSectionSpacing,
+                    toolbarIconAlignment: widget.toolbarIconAlignment,
+                    toolbarIconCrossAlignment: widget.toolbarIconCrossAlignment,
+                    multiRowsDisplay: widget.multiRowsDisplay,
+                    showDividers: widget.showDividers,
+                    showFontFamily: widget.showFontFamily,
+                    showFontSize: widget.showFontSize,
+                    showBoldButton: widget.showBoldButton,
+                    showItalicButton: widget.showItalicButton,
+                    showSmallButton: widget.showSmallButton,
+                    showUnderLineButton: widget.showUnderLineButton,
+                    showStrikeThrough: widget.showStrikeThrough,
+                    showInlineCode: widget.showInlineCode,
+                    showColorButton: widget.showColorButton,
+                    showBackgroundColorButton: widget.showBackgroundColorButton,
+                    showClearFormat: widget.showClearFormat,
+                    showAlignmentButtons: widget.showAlignmentButtons,
+                    showLeftAlignment: widget.showLeftAlignment,
+                    showCenterAlignment: widget.showCenterAlignment,
+                    showRightAlignment: widget.showRightAlignment,
+                    showJustifyAlignment: widget.showJustifyAlignment,
+                    showHeaderStyle: widget.showHeaderStyle,
+                    showListNumbers: widget.showListNumbers,
+                    showListBullets: widget.showListBullets,
+                    showListCheck: widget.showListCheck,
+                    showCodeBlock: widget.showCodeBlock,
+                    showQuote: widget.showQuote,
+                    showIndent: widget.showIndent,
+                    showLink: widget.showLink,
+                    showUndo: widget.showUndo,
+                    showRedo: widget.showRedo,
+                    showDirection: widget.showDirection,
+                    showSearchButton: widget.showSearchButton,
+                    showSubscript: widget.showSubscript,
+                    showSuperscript: widget.showSuperscript,
+                    embedButtons: _buildCustomEmbedButtons(themeData),
+                  ),
+                ),
               ),
-            ),
-            widget.barDivider ?? const SizedBox(),
-            Expanded(
-              child: QuillEditor(
-                controller: _editorController._quillController,
-                focusNode: _editorController._focusNode,
-                scrollController: _editorController._scrollController,
-                scrollable: widget.bodyScrollable,
-                padding: widget.bodyPadding,
-                autoFocus: widget.bodyAutoFocus,
-                readOnly: widget.bodyReadOnly,
-                expands: widget.bodyExpands,
-                showCursor: widget.bodyShowCursor,
-                placeholder: widget.bodyPlaceholder,
-                scrollPhysics: widget.bodyScrollPhysics,
-                keyboardAppearance: themeData.brightness,
-                onImagePaste: widget.onImagePickCallback == null ? null : (imageBytes) async => await widget.onImagePickCallback!(imageBytes), //兼容虚拟机的写法
-                embedBuilders: [_ZyEditorImageEmbedBuilder(onImageFormatUrl: widget.onImageFormatUrl)],
+              widget.barDivider ?? const SizedBox(),
+              Expanded(
+                child: QuillEditor(
+                  configurations: QuillEditorConfigurations(
+                    scrollable: widget.bodyScrollable,
+                    padding: widget.bodyPadding,
+                    autoFocus: widget.bodyAutoFocus,
+                    readOnly: widget.bodyReadOnly,
+                    expands: widget.bodyExpands,
+                    showCursor: widget.bodyShowCursor,
+                    placeholder: widget.bodyPlaceholder,
+                    scrollPhysics: widget.bodyScrollPhysics,
+                    keyboardAppearance: themeData.brightness,
+                    onImagePaste: widget.onImagePickCallback == null ? null : (imageBytes) async => await widget.onImagePickCallback!(imageBytes), //兼容虚拟机的写法
+                    embedBuilders: [_ZyEditorImageEmbedBuilder(onImageFormatUrl: widget.onImageFormatUrl)],
+                  ),
+                  focusNode: _editorController._focusNode,
+                  scrollController: _editorController._scrollController,
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       );
     }
@@ -406,7 +418,7 @@ class _ZyEditorState extends State<ZyEditor> {
   }
 
   EmbedButtonBuilder _getCustomButtonBuilder(ThemeData themeData, {required IconData icon, required String? tooltip, required Future<void> Function() onPressed}) {
-    return (controller, iconSize, iconTheme, dialogTheme) => QuillIconButton(
+    return (controller, iconSize, iconTheme, dialogTheme) => QuillToolbarIconButton(
           icon: Icon(icon, size: iconSize, color: iconTheme?.iconUnselectedColor ?? themeData.iconTheme.color),
           tooltip: tooltip,
           highlightElevation: 0,
@@ -435,46 +447,18 @@ class _ZyEditorState extends State<ZyEditor> {
 class _ZyEditorImageEmbedBuilder extends EmbedBuilder {
   final String Function(String val)? onImageFormatUrl;
 
-  _ZyEditorImageEmbedBuilder({
-    required this.onImageFormatUrl,
-  });
+  _ZyEditorImageEmbedBuilder({required this.onImageFormatUrl});
 
   @override
-  Widget build(
-    BuildContext context,
-    QuillController controller,
-    base.Embed node,
-    bool readOnly,
-    bool inline,
-    TextStyle textStyle,
-  ) {
-    final style = node.style.attributes['style'];
-    if (base.isMobile() && style != null) {
-      final attrs = base.parseKeyValuePairs(style.value.toString(), {
-        Attribute.mobileWidth,
-        Attribute.mobileHeight,
-        Attribute.mobileMargin,
-        Attribute.mobileAlignment,
-      });
-      return Container(
-        width: double.tryParse(attrs[Attribute.mobileWidth] ?? ''),
-        height: double.tryParse(attrs[Attribute.mobileHeight] ?? ''),
-        margin: EdgeInsets.all(double.tryParse(attrs[Attribute.mobileMargin] ?? '') ?? 0),
-        alignment: base.getAlignment(attrs[Attribute.mobileAlignment]),
-        child: ZyImage(url: node.value.data, onFormatUrl: onImageFormatUrl ?? _defaultImageFormatUrl),
-      );
-    } else {
-      return Center(
-        child: ZyImage(url: node.value.data, onFormatUrl: onImageFormatUrl ?? _defaultImageFormatUrl),
-      );
-    }
+  Widget build(BuildContext context, QuillController controller, Embed node, bool readOnly, bool inline, TextStyle textStyle) {
+    return Center(child: ZyImage(url: node.value.data, onFormatUrl: onImageFormatUrl ?? _defaultImageFormatUrl));
   }
-
-  String _defaultImageFormatUrl(String url) => url;
 
   @override
   String get key => BlockEmbed.imageType;
 
   @override
   bool get expanded => false;
+
+  static String _defaultImageFormatUrl(String url) => url;
 }

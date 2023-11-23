@@ -27,8 +27,8 @@ class ZyLoading extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
-    return WillPopScope(
-      onWillPop: () async => false, //拦截返回按钮
+    return PopScope(
+      canPop: false, //拦截返回按钮
       child: SafeArea(
         child: Center(
           child: Container(
