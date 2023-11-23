@@ -35,11 +35,11 @@ dependencies:
   permission_handler_platform_interface: 4.0.2
   plugin_platform_interface: 2.1.7
   scrollable_positioned_list: 0.3.8
-  shelf_easy: 3.2.1
+  shelf_easy: 3.2.2
   url_launcher: 6.2.1
   webrtc_interface: 1.1.2
   webview_flutter: 4.4.2
   webview_flutter_platform_interface: 2.7.0
-  zycloud_client: 1.1.0
+  zycloud_client: 1.1.1
 
 ```

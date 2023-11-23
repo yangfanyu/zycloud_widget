@@ -1161,10 +1161,10 @@ packages:
     dependency: "direct main"
     description:
       name: shelf_easy
-      sha256: "12cad5ec7cd79b863c69922d5ca38a3641a5930e442a3ac43bcd70e04fcb16ee"
+      sha256: "6d4977220cc3c90d33482898f4d1a00b766bf3169f458930427cf448c746caa1"
       url: "https://pub.dev"
     source: hosted
-    version: "3.2.1"
+    version: "3.2.2"
   shelf_gzip:
     dependency: transitive
     description:
@@ -1494,10 +1494,10 @@ packages:
     dependency: "direct main"
     description:
       name: zycloud_client
-      sha256: f8225b081f364111b5c325d8e0103929b31b6daa32c4db7210758b14b2ac7e7d
+      sha256: "723f18f7adf3c307ca2a08e517c2b27387d86a012d2345e87227d6579853cf3f"
       url: "https://pub.dev"
     source: hosted
-    version: "1.1.0"
+    version: "1.1.1"
   zycloud_widget:
     dependency: "direct main"
     description:
