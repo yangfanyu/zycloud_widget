@@ -3,8 +3,8 @@ import 'package:shelf_easy/shelf_easy.dart';
 import 'package:zycloud_widget/zycloud_bridge.dart';
 import 'package:zycloud_widget/zycloud_widget.dart';
 
-///修改这个参数后Control+R切换App的模式
-const vmwareApp = false;
+///修改这个参数后 shit + r 切换App的模式
+const vmwareApp = true;
 
 void main(List<String> args) async {
   ///确保库加载完毕
