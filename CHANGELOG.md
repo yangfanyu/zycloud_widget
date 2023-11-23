@@ -1,3 +1,7 @@
+## 1.1.0
+
+- Upgrade dependent libraries, update bridge libraries, and improve example/main.dart.
+  
 ## 1.0.33
 
 - Upgrade dependent libraries and update bridge libraries.

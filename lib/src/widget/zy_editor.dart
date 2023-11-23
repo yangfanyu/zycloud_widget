@@ -327,8 +327,6 @@ class _ZyEditorState extends State<ZyEditor> {
                 margin: widget.barPadding,
                 child: QuillToolbar(
                   configurations: QuillToolbarConfigurations(
-                    color: Colors.transparent,
-                    axis: widget.axis,
                     buttonOptions: QuillToolbarButtonOptions(
                       base: QuillToolbarBaseButtonOptions(
                         iconTheme: QuillIconTheme(iconSelectedFillColor: themeData.colorScheme.primary, iconUnselectedFillColor: Colors.transparent),
@@ -336,6 +334,8 @@ class _ZyEditorState extends State<ZyEditor> {
                         afterButtonPressed: () => _editorController._focusNode.requestFocus(), //点击工具栏按钮后，非移动平台会失去焦点，这里重新获取
                       ),
                     ),
+                    axis: widget.axis,
+                    color: Colors.transparent,
                     toolbarSectionSpacing: widget.toolbarSectionSpacing,
                     toolbarIconAlignment: widget.toolbarIconAlignment,
                     toolbarIconCrossAlignment: widget.toolbarIconCrossAlignment,

@@ -65,7 +65,7 @@ class _AppHomeState extends ZyPageState<AppHome> {
   @override
   Widget render(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Native App')),
+      appBar: AppBar(title: const Text('VmWare App')),
       body: const ZyEditor(
         bodyScrollable: true,
         bodyPadding: EdgeInsets.all(8.0),
