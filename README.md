@@ -26,8 +26,8 @@ dependencies:
   flutter_linkify: 6.0.0
   flutter_slidable: 3.0.1
   flutter_vector_icons: 2.0.0
-  flutter_webrtc: 0.9.46
-  http: 1.1.0
+  flutter_webrtc: 0.9.47
+  http: 1.1.2
   http_parser: 4.0.2
   linkify: 5.0.0
   loading_indicator: 3.1.1
@@ -39,7 +39,7 @@ dependencies:
   url_launcher: 6.2.1
   webrtc_interface: 1.1.2
   webview_flutter: 4.4.2
-  webview_flutter_platform_interface: 2.7.0
+  webview_flutter_platform_interface: 2.8.0
   zycloud_client: 1.1.1
 
 ```

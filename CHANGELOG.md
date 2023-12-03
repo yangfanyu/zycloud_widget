@@ -1,3 +1,8 @@
+## 1.1.2
+
+- Upgrade dependent libraries, update bridge libraries.
+- Add override parameters for click events to the ZyDialog class.
+  
 ## 1.1.1
 
 - Upgrade dependent libraries and update bridge libraries.

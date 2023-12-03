@@ -1174,7 +1174,7 @@ class FlutterWebrtcLibrary {
       'renderVideo': VmProxy(identifier: 'renderVideo', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.renderVideo),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.runtimeType),
       'setSrcObject': VmProxy(identifier: 'setSrcObject', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.setSrcObject),
-      'srcObject': VmProxy(identifier: 'srcObject', externalInstancePropertyWriter: (RTCVideoRenderer instance, value) => instance.srcObject = value, externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.srcObject),
+      'srcObject': VmProxy(identifier: 'srcObject', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.srcObject, externalInstancePropertyWriter: (RTCVideoRenderer instance, value) => instance.srcObject = value),
       'textureId': VmProxy(identifier: 'textureId', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.textureId),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.toString),
       'value': VmProxy(identifier: 'value', externalInstancePropertyReader: (RTCVideoRenderer instance) => instance.value, externalInstancePropertyWriter: (RTCVideoRenderer instance, value) => instance.value = value),

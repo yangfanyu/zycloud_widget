@@ -280,6 +280,7 @@ class WebviewFlutterLibrary {
       'setJavaScriptMode': VmProxy(identifier: 'setJavaScriptMode', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setJavaScriptMode),
       'setOnConsoleMessage': VmProxy(identifier: 'setOnConsoleMessage', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnConsoleMessage, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnConsoleMessage((b0) => a0(b0))),
       'setOnPlatformPermissionRequest': VmProxy(identifier: 'setOnPlatformPermissionRequest', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnPlatformPermissionRequest, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnPlatformPermissionRequest((b0) => a0(b0))),
+      'setOnScrollPositionChange': VmProxy(identifier: 'setOnScrollPositionChange', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnScrollPositionChange, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnScrollPositionChange(a0 == null ? null : (b0) => a0(b0))),
       'setPlatformNavigationDelegate': VmProxy(identifier: 'setPlatformNavigationDelegate', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setPlatformNavigationDelegate),
       'setUserAgent': VmProxy(identifier: 'setUserAgent', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setUserAgent),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.toString),
@@ -372,6 +373,21 @@ class WebviewFlutterLibrary {
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (PlatformWebViewWidgetCreationParams instance) => instance.noSuchMethod),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (PlatformWebViewWidgetCreationParams instance) => instance.runtimeType),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (PlatformWebViewWidgetCreationParams instance) => instance.toString),
+    },
+  );
+
+  ///class ScrollPositionChange
+  static final classScrollPositionChange = VmClass<ScrollPositionChange>(
+    identifier: 'ScrollPositionChange',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => ScrollPositionChange.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (ScrollPositionChange instance) => instance.hashCode),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (ScrollPositionChange instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (ScrollPositionChange instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (ScrollPositionChange instance) => instance.toString),
+      'x': VmProxy(identifier: 'x', externalInstancePropertyReader: (ScrollPositionChange instance) => instance.x),
+      'y': VmProxy(identifier: 'y', externalInstancePropertyReader: (ScrollPositionChange instance) => instance.y),
     },
   );
 
@@ -633,6 +649,7 @@ class WebviewFlutterLibrary {
     classPlatformWebViewPermissionRequest,
     classPlatformWebViewWidget,
     classPlatformWebViewWidgetCreationParams,
+    classScrollPositionChange,
     classUrlChange,
     classWebResourceError,
     classWebResourceErrorType,
