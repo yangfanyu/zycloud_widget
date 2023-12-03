@@ -41,6 +41,8 @@ class ZyWindow {
     Color? rightColor,
     bool rightOnly = false,
     bool scrollable = true,
+    void Function()? onLeftBtnPressed,
+    void Function()? onRightBtnPressed,
     bool hasTransition = true,
   }) {
     return ZyApp.showDialog(
@@ -55,6 +57,8 @@ class ZyWindow {
         rightColor: rightColor,
         rightOnly: rightOnly,
         scrollable: scrollable,
+        onLeftBtnPressed: onLeftBtnPressed,
+        onRightBtnPressed: onRightBtnPressed,
       ),
       transitionBuilder: hasTransition
           ? (context, animation, secondaryAnimation, child) => ScaleTransition(

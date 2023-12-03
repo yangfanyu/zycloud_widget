@@ -45,6 +45,12 @@ class ZyDialog extends StatelessWidget {
   ///按钮高度
   final double btnHeight;
 
+  ///左边按钮的点击监听，为null时默认pop(false);
+  final void Function()? onLeftBtnPressed;
+
+  ///右边按钮的点击监听，为null时默认pop(true);
+  final void Function()? onRightBtnPressed;
+
   const ZyDialog({
     super.key,
     this.title,
@@ -60,6 +66,8 @@ class ZyDialog extends StatelessWidget {
     this.radius = const BorderRadius.all(Radius.circular(8)),
     this.padding = const EdgeInsets.all(16),
     this.btnHeight = 52,
+    this.onLeftBtnPressed,
+    this.onRightBtnPressed,
   });
 
   @override
@@ -91,17 +99,17 @@ class ZyDialog extends StatelessWidget {
                       ? const SizedBox()
                       : Expanded(
                           child: MaterialButton(
+                            onPressed: onLeftBtnPressed ?? () => ZyApp.pop(false),
                             padding: EdgeInsets.zero,
                             child: Text(leftText, style: textStyle?.copyWith(color: leftColor)),
-                            onPressed: () => ZyApp.pop(false),
                           ),
                         ),
                   rightOnly ? const SizedBox() : const VerticalDivider(),
                   Expanded(
                     child: MaterialButton(
+                      onPressed: onRightBtnPressed ?? () => ZyApp.pop(true),
                       padding: EdgeInsets.zero,
                       child: Text(rightText, style: textStyle?.copyWith(color: rightColor)),
-                      onPressed: () => ZyApp.pop(true),
                     ),
                   ),
                 ],

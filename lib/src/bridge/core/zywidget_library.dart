@@ -505,6 +505,8 @@ class ZywidgetLibrary {
       'leftColor': VmProxy(identifier: 'leftColor', externalInstancePropertyReader: (ZyDialog instance) => instance.leftColor),
       'leftText': VmProxy(identifier: 'leftText', externalInstancePropertyReader: (ZyDialog instance) => instance.leftText),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (ZyDialog instance) => instance.noSuchMethod),
+      'onLeftBtnPressed': VmProxy(identifier: 'onLeftBtnPressed', externalInstancePropertyReader: (ZyDialog instance) => instance.onLeftBtnPressed),
+      'onRightBtnPressed': VmProxy(identifier: 'onRightBtnPressed', externalInstancePropertyReader: (ZyDialog instance) => instance.onRightBtnPressed),
       'padding': VmProxy(identifier: 'padding', externalInstancePropertyReader: (ZyDialog instance) => instance.padding),
       'radius': VmProxy(identifier: 'radius', externalInstancePropertyReader: (ZyDialog instance) => instance.radius),
       'rightColor': VmProxy(identifier: 'rightColor', externalInstancePropertyReader: (ZyDialog instance) => instance.rightColor),
