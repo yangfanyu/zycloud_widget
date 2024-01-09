@@ -33,9 +33,32 @@ class AppLinksLibrary {
     },
   );
 
+  ///class AppLinksPluginLinux
+  static final classAppLinksPluginLinux = VmClass<AppLinksPluginLinux>(
+    identifier: 'AppLinksPluginLinux',
+    superclassNames: ['Object', 'PlatformInterface', 'AppLinksPlatform'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => AppLinksPluginLinux.new),
+      'registerWith': VmProxy(identifier: 'registerWith', externalStaticPropertyReader: () => AppLinksPluginLinux.registerWith),
+      'allStringLinkStream': VmProxy(identifier: 'allStringLinkStream', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.allStringLinkStream),
+      'allUriLinkStream': VmProxy(identifier: 'allUriLinkStream', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.allUriLinkStream),
+      'getInitialAppLink': VmProxy(identifier: 'getInitialAppLink', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.getInitialAppLink),
+      'getInitialAppLinkString': VmProxy(identifier: 'getInitialAppLinkString', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.getInitialAppLinkString),
+      'getLatestAppLink': VmProxy(identifier: 'getLatestAppLink', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.getLatestAppLink),
+      'getLatestAppLinkString': VmProxy(identifier: 'getLatestAppLinkString', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.getLatestAppLinkString),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.hashCode),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.runtimeType),
+      'stringLinkStream': VmProxy(identifier: 'stringLinkStream', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.stringLinkStream),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.toString),
+      'uriLinkStream': VmProxy(identifier: 'uriLinkStream', externalInstancePropertyReader: (AppLinksPluginLinux instance) => instance.uriLinkStream),
+    },
+  );
+
   ///all class list
   static final libraryClassList = <VmClass>[
     classAppLinks,
+    classAppLinksPluginLinux,
   ];
 
   ///all proxy list

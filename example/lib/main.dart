@@ -72,6 +72,7 @@ class _AppHomeState extends ZyPageState<AppHome> {
         bodyAutoFocus: true,
         bodyReadOnly: false,
         bodyExpands: true,
+        toolbarIconSize: 12.0,
       ),
     );
   }
@@ -122,6 +123,7 @@ class _AppHomeState extends ZyPageState<AppHome> {
         bodyAutoFocus: true,
         bodyReadOnly: false,
         bodyExpands: true,
+        toolbarIconSize: 12.0,
       ),
     );
   }

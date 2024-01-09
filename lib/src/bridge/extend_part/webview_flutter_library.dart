@@ -44,6 +44,21 @@ class WebviewFlutterLibrary {
     },
   );
 
+  ///class JavaScriptAlertDialogRequest
+  static final classJavaScriptAlertDialogRequest = VmClass<JavaScriptAlertDialogRequest>(
+    identifier: 'JavaScriptAlertDialogRequest',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => JavaScriptAlertDialogRequest.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (JavaScriptAlertDialogRequest instance) => instance.hashCode),
+      'message': VmProxy(identifier: 'message', externalInstancePropertyReader: (JavaScriptAlertDialogRequest instance) => instance.message),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (JavaScriptAlertDialogRequest instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptAlertDialogRequest instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptAlertDialogRequest instance) => instance.toString),
+      'url': VmProxy(identifier: 'url', externalInstancePropertyReader: (JavaScriptAlertDialogRequest instance) => instance.url),
+    },
+  );
+
   ///class JavaScriptChannelParams
   static final classJavaScriptChannelParams = VmClass<JavaScriptChannelParams>(
     identifier: 'JavaScriptChannelParams',
@@ -56,6 +71,21 @@ class WebviewFlutterLibrary {
       'onMessageReceived': VmProxy(identifier: 'onMessageReceived', externalInstancePropertyReader: (JavaScriptChannelParams instance) => instance.onMessageReceived),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptChannelParams instance) => instance.runtimeType),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptChannelParams instance) => instance.toString),
+    },
+  );
+
+  ///class JavaScriptConfirmDialogRequest
+  static final classJavaScriptConfirmDialogRequest = VmClass<JavaScriptConfirmDialogRequest>(
+    identifier: 'JavaScriptConfirmDialogRequest',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => JavaScriptConfirmDialogRequest.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (JavaScriptConfirmDialogRequest instance) => instance.hashCode),
+      'message': VmProxy(identifier: 'message', externalInstancePropertyReader: (JavaScriptConfirmDialogRequest instance) => instance.message),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (JavaScriptConfirmDialogRequest instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptConfirmDialogRequest instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptConfirmDialogRequest instance) => instance.toString),
+      'url': VmProxy(identifier: 'url', externalInstancePropertyReader: (JavaScriptConfirmDialogRequest instance) => instance.url),
     },
   );
 
@@ -120,6 +150,22 @@ class WebviewFlutterLibrary {
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (JavaScriptMode instance) => instance.noSuchMethod),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptMode instance) => instance.runtimeType),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptMode instance) => instance.toString),
+    },
+  );
+
+  ///class JavaScriptTextInputDialogRequest
+  static final classJavaScriptTextInputDialogRequest = VmClass<JavaScriptTextInputDialogRequest>(
+    identifier: 'JavaScriptTextInputDialogRequest',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => JavaScriptTextInputDialogRequest.new),
+      'defaultText': VmProxy(identifier: 'defaultText', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.defaultText),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.hashCode),
+      'message': VmProxy(identifier: 'message', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.message),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.toString),
+      'url': VmProxy(identifier: 'url', externalInstancePropertyReader: (JavaScriptTextInputDialogRequest instance) => instance.url),
     },
   );
 
@@ -279,6 +325,9 @@ class WebviewFlutterLibrary {
       'setBackgroundColor': VmProxy(identifier: 'setBackgroundColor', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setBackgroundColor),
       'setJavaScriptMode': VmProxy(identifier: 'setJavaScriptMode', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setJavaScriptMode),
       'setOnConsoleMessage': VmProxy(identifier: 'setOnConsoleMessage', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnConsoleMessage, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnConsoleMessage((b0) => a0(b0))),
+      'setOnJavaScriptAlertDialog': VmProxy(identifier: 'setOnJavaScriptAlertDialog', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnJavaScriptAlertDialog, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnJavaScriptAlertDialog((b0) => a0(b0))),
+      'setOnJavaScriptConfirmDialog': VmProxy(identifier: 'setOnJavaScriptConfirmDialog', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnJavaScriptConfirmDialog, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnJavaScriptConfirmDialog((b0) => a0(b0))),
+      'setOnJavaScriptTextInputDialog': VmProxy(identifier: 'setOnJavaScriptTextInputDialog', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnJavaScriptTextInputDialog, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnJavaScriptTextInputDialog((b0) => a0(b0))),
       'setOnPlatformPermissionRequest': VmProxy(identifier: 'setOnPlatformPermissionRequest', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnPlatformPermissionRequest, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnPlatformPermissionRequest((b0) => a0(b0))),
       'setOnScrollPositionChange': VmProxy(identifier: 'setOnScrollPositionChange', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setOnScrollPositionChange, externalInstanceFunctionCaller: (PlatformWebViewController instance, a0) => instance.setOnScrollPositionChange(a0 == null ? null : (b0) => a0(b0))),
       'setPlatformNavigationDelegate': VmProxy(identifier: 'setPlatformNavigationDelegate', externalInstancePropertyReader: (PlatformWebViewController instance) => instance.setPlatformNavigationDelegate),
@@ -630,11 +679,14 @@ class WebviewFlutterLibrary {
   static final libraryClassList = <VmClass>[
     classHttpAuthRequest,
     classHttpResponseError,
+    classJavaScriptAlertDialogRequest,
     classJavaScriptChannelParams,
+    classJavaScriptConfirmDialogRequest,
     classJavaScriptConsoleMessage,
     classJavaScriptLogLevel,
     classJavaScriptMessage,
     classJavaScriptMode,
+    classJavaScriptTextInputDialogRequest,
     classLoadRequestMethod,
     classLoadRequestParams,
     classNavigationDecision,

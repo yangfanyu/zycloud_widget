@@ -15,14 +15,14 @@ The built-in bridging library is limited by the version of the third-party libra
 ```yaml
 
 environment:
-  sdk: 3.2.0
-  flutter: 3.16.0
+  sdk: 3.2.3
+  flutter: 3.16.5
 
 dependencies:
-  app_links: 3.4.5
+  app_links: 3.5.0
   audioplayers: 5.2.1
   audioplayers_platform_interface: 6.1.0
-  bson: 4.0.0
+  bson: 5.0.2
   flutter_linkify: 6.0.0
   flutter_slidable: 3.0.1
   flutter_vector_icons: 2.0.0
@@ -33,13 +33,13 @@ dependencies:
   loading_indicator: 3.1.1
   permission_handler: 11.1.0
   permission_handler_platform_interface: 4.0.2
-  plugin_platform_interface: 2.1.7
+  plugin_platform_interface: 2.1.8
   scrollable_positioned_list: 0.3.8
-  shelf_easy: 3.2.2
-  url_launcher: 6.2.1
+  shelf_easy: 3.4.0
+  url_launcher: 6.2.3
   webrtc_interface: 1.1.2
-  webview_flutter: 4.4.2
-  webview_flutter_platform_interface: 2.8.0
-  zycloud_client: 1.1.1
+  webview_flutter: 4.4.4
+  webview_flutter_platform_interface: 2.9.1
+  zycloud_client: 1.2.0
 
 ```

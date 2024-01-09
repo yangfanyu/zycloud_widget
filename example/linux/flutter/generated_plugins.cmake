@@ -6,8 +6,10 @@ list(APPEND FLUTTER_PLUGIN_LIST
   audioplayers_linux
   file_selector_linux
   flutter_webrtc
-  pasteboard
+  gtk
+  irondash_engine_context
   platform_device_id_linux
+  super_native_extensions
   url_launcher_linux
 )
 
