@@ -35,7 +35,7 @@ dependencies:
   permission_handler_platform_interface: 4.0.2
   plugin_platform_interface: 2.1.8
   scrollable_positioned_list: 0.3.8
-  shelf_easy: 3.4.0
+  shelf_easy: 3.5.0
   url_launcher: 6.2.3
   webrtc_interface: 1.1.2
   webview_flutter: 4.4.4
