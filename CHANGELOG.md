@@ -1,3 +1,7 @@
+## 1.3.2
+
+- Upgrade dependent libraries, update bridge libraries.
+  
 ## 1.3.1
 
 - Upgrade dependent libraries, update bridge libraries.
