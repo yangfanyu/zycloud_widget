@@ -7,6 +7,7 @@
 
 import 'package:shelf_easy/shelf_easy.dart';
 import 'package:zycloud_client/zycloud_client.dart';
+import 'package:extended_image/extended_image.dart';
 
 ///
 ///zyclient库桥接类
@@ -1809,6 +1810,7 @@ class ZyclientLibrary {
       'contentLength': VmProxy(identifier: 'contentLength', externalInstancePropertyReader: (Response instance) => instance.contentLength),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (Response instance) => instance.hashCode),
       'headers': VmProxy(identifier: 'headers', externalInstancePropertyReader: (Response instance) => instance.headers),
+      'headersSplitValues': VmProxy(identifier: 'headersSplitValues', externalInstancePropertyReader: (Response instance) => instance.headersSplitValues),
       'isRedirect': VmProxy(identifier: 'isRedirect', externalInstancePropertyReader: (Response instance) => instance.isRedirect),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (Response instance) => instance.noSuchMethod),
       'persistentConnection': VmProxy(identifier: 'persistentConnection', externalInstancePropertyReader: (Response instance) => instance.persistentConnection),

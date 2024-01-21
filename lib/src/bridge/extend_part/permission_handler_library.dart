@@ -23,6 +23,7 @@ class PermissionHandlerLibrary {
       'accessNotificationPolicy': VmProxy(identifier: 'accessNotificationPolicy', externalStaticPropertyReader: () => Permission.accessNotificationPolicy),
       'activityRecognition': VmProxy(identifier: 'activityRecognition', externalStaticPropertyReader: () => Permission.activityRecognition),
       'appTrackingTransparency': VmProxy(identifier: 'appTrackingTransparency', externalStaticPropertyReader: () => Permission.appTrackingTransparency),
+      'assistant': VmProxy(identifier: 'assistant', externalStaticPropertyReader: () => Permission.assistant),
       'audio': VmProxy(identifier: 'audio', externalStaticPropertyReader: () => Permission.audio),
       'bluetooth': VmProxy(identifier: 'bluetooth', externalStaticPropertyReader: () => Permission.bluetooth),
       'bluetoothAdvertise': VmProxy(identifier: 'bluetoothAdvertise', externalStaticPropertyReader: () => Permission.bluetoothAdvertise),

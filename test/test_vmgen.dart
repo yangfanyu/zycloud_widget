@@ -350,6 +350,7 @@ void _generateLibraryForCore$ZyClient(String libraryName, String rootFolder) {
     classDesc: '$libraryName库桥接类',
     importList: [
       'package:zycloud_client/zycloud_client.dart',
+      'package:extended_image/extended_image.dart', //Response.headersSplitValues属性需要此项
     ],
     libraryPaths: [
       '$machineHome/.pub-cache/hosted/pub.dev/$httpVersion/lib',
