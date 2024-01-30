@@ -1,14 +1,7 @@
-## 1.3.3
+## 1.3.4
 
 - Upgrade dependent libraries, update bridge libraries.
-  
-## 1.3.2
-
-- Upgrade dependent libraries, update bridge libraries.
-  
-## 1.3.1
-
-- Upgrade dependent libraries, update bridge libraries.
+- Add data compression method ZyService.encodeBase64 and data decompression method ZyService.decodeBase64.
   
 ## 1.1.2
 
