@@ -1,5 +1,7 @@
-import 'dart:io';
+import 'dart:convert';
+import 'dart:io' show File, gzip;
 
+import 'package:archive/archive.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_background/flutter_background.dart';
@@ -258,4 +260,62 @@ class ZyService {
 
   ///获取flutter_webrtc屏幕媒体流
   static Future<MediaStream> getDisplayMedia(Map<String, dynamic> mediaConstraints) => navigator.mediaDevices.getDisplayMedia(mediaConstraints);
+
+  ///压缩[utf8]格式的[data]数据，返回[base64]格式的字符串，[compressType]为[gzip]且[ioForGzip]为true时在dart:io环境下使用原生编解码器
+  static String encodeBase64({required String data, String compressType = 'gzip', int? compressLevel, bool ioForGzip = true}) {
+    final orgBytes = utf8.encode(data);
+    late final List<int> encBytes;
+    switch (compressType) {
+      case 'zlib':
+        encBytes = const ZLibEncoder().encode(orgBytes, level: compressLevel);
+        break;
+      case 'gzip':
+        if (ZyDeviceInfo.isWeb) {
+          encBytes = GZipEncoder().encode(orgBytes, level: compressLevel)!;
+        } else if (ioForGzip) {
+          encBytes = gzip.encode(orgBytes);
+        } else {
+          encBytes = GZipEncoder().encode(orgBytes, level: compressLevel)!;
+        }
+        break;
+      case 'bzip2':
+        encBytes = BZip2Encoder().encode(orgBytes);
+        break;
+      case 'xz':
+        encBytes = XZEncoder().encode(orgBytes);
+        break;
+      default:
+        throw ('CompressType only support zlib, gzip, bzip2, xz.');
+    }
+    return base64Encode(encBytes);
+  }
+
+  ///解压[base64]格式的[data]数据，返回[utf8]格式的字符串，[compressType]为[gzip]且[ioForGzip]为true时在dart:io环境下使用原生编解码器
+  static String decodeBase64({required String data, String compressType = 'gzip', bool verify = false, bool ioForGzip = true}) {
+    final orgBytes = base64Decode(data);
+    late final List<int> decBytes;
+    switch (compressType) {
+      case 'zlib':
+        decBytes = const ZLibDecoder().decodeBytes(orgBytes, verify: verify);
+        break;
+      case 'gzip':
+        if (ZyDeviceInfo.isWeb) {
+          decBytes = GZipDecoder().decodeBytes(orgBytes, verify: verify);
+        } else if (ioForGzip) {
+          decBytes = gzip.decode(orgBytes);
+        } else {
+          decBytes = GZipDecoder().decodeBytes(orgBytes, verify: verify);
+        }
+        break;
+      case 'bzip2':
+        decBytes = BZip2Decoder().decodeBytes(orgBytes, verify: verify);
+        break;
+      case 'xz':
+        decBytes = XZDecoder().decodeBytes(orgBytes, verify: verify);
+        break;
+      default:
+        throw ('CompressType only support zlib, gzip, bzip2, xz.');
+    }
+    return utf8.decode(decBytes);
+  }
 }

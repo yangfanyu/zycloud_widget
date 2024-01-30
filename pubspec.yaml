@@ -87,6 +87,7 @@ dependencies:
   # -------- Below plugins full support [all] platforms, but pub.dev only show [ios, linux, macos, windows] platform--------  
   # common
   flutter_quill: ^9.2.0
+  archive: ^3.4.10
 
 dev_dependencies:
   flutter_test:
