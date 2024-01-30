@@ -38,8 +38,9 @@ class WebviewFlutterLibrary {
       'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => HttpResponseError.new),
       'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (HttpResponseError instance) => instance.hashCode),
       'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (HttpResponseError instance) => instance.noSuchMethod),
+      'request': VmProxy(identifier: 'request', externalInstancePropertyReader: (HttpResponseError instance) => instance.request),
+      'response': VmProxy(identifier: 'response', externalInstancePropertyReader: (HttpResponseError instance) => instance.response),
       'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (HttpResponseError instance) => instance.runtimeType),
-      'statusCode': VmProxy(identifier: 'statusCode', externalInstancePropertyReader: (HttpResponseError instance) => instance.statusCode),
       'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (HttpResponseError instance) => instance.toString),
     },
   );
@@ -506,6 +507,36 @@ class WebviewFlutterLibrary {
     },
   );
 
+  ///class WebResourceRequest
+  static final classWebResourceRequest = VmClass<WebResourceRequest>(
+    identifier: 'WebResourceRequest',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => WebResourceRequest.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (WebResourceRequest instance) => instance.hashCode),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (WebResourceRequest instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (WebResourceRequest instance) => instance.runtimeType),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (WebResourceRequest instance) => instance.toString),
+      'uri': VmProxy(identifier: 'uri', externalInstancePropertyReader: (WebResourceRequest instance) => instance.uri),
+    },
+  );
+
+  ///class WebResourceResponse
+  static final classWebResourceResponse = VmClass<WebResourceResponse>(
+    identifier: 'WebResourceResponse',
+    superclassNames: ['Object'],
+    externalProxyMap: {
+      'new': VmProxy(identifier: 'new', externalStaticPropertyReader: () => WebResourceResponse.new),
+      'hashCode': VmProxy(identifier: 'hashCode', externalInstancePropertyReader: (WebResourceResponse instance) => instance.hashCode),
+      'headers': VmProxy(identifier: 'headers', externalInstancePropertyReader: (WebResourceResponse instance) => instance.headers),
+      'noSuchMethod': VmProxy(identifier: 'noSuchMethod', externalInstancePropertyReader: (WebResourceResponse instance) => instance.noSuchMethod),
+      'runtimeType': VmProxy(identifier: 'runtimeType', externalInstancePropertyReader: (WebResourceResponse instance) => instance.runtimeType),
+      'statusCode': VmProxy(identifier: 'statusCode', externalInstancePropertyReader: (WebResourceResponse instance) => instance.statusCode),
+      'toString': VmProxy(identifier: 'toString', externalInstancePropertyReader: (WebResourceResponse instance) => instance.toString),
+      'uri': VmProxy(identifier: 'uri', externalInstancePropertyReader: (WebResourceResponse instance) => instance.uri),
+    },
+  );
+
   ///class WebViewController
   static final classWebViewController = VmClass<WebViewController>(
     identifier: 'WebViewController',
@@ -705,6 +736,8 @@ class WebviewFlutterLibrary {
     classUrlChange,
     classWebResourceError,
     classWebResourceErrorType,
+    classWebResourceRequest,
+    classWebResourceResponse,
     classWebViewController,
     classWebViewCookie,
     classWebViewCookieManager,
