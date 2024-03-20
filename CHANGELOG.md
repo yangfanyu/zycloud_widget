@@ -1,3 +1,7 @@
+## 1.3.6
+
+- Upgrade dependent libraries, update bridge libraries，Strictly restrict the version numbers of dart and flutter.
+  
 ## 1.3.4
 
 - Upgrade dependent libraries, update bridge libraries.

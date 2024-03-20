@@ -1,6 +1,6 @@
 name: zycloud_widget
 description: This library contains a dynamic Flutter widget module based on the shelf_easy virtual machine, and some third-party library bridge generation modules.
-version: 1.3.4
+version: 1.3.6
 homepage: https://github.com/yangfanyu/zycloud_widget
 
 environment:

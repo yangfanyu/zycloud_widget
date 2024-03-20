@@ -14,31 +14,27 @@ ZyCloud服务的基础功能永久免费。服务目的是为AOT环境下的Dart
 
 ```yaml
 
-environment:
-  sdk: 3.2.6
-  flutter: 3.16.9
-
 dependencies:
-  app_links: 3.5.0
+  app_links: 3.5.1
   audioplayers: 5.2.1
   audioplayers_platform_interface: 6.1.0
-  bson: 5.0.3
+  bson: 5.0.4
   flutter_linkify: 6.0.0
-  flutter_slidable: 3.0.1
+  flutter_slidable: 3.1.0
   flutter_vector_icons: 2.0.0
-  flutter_webrtc: 0.9.47
+  flutter_webrtc: 0.9.48+hotfix.1
   http: 1.2.0
   http_parser: 4.0.2
   linkify: 5.0.0
   loading_indicator: 3.1.1
-  permission_handler: 11.2.0
-  permission_handler_platform_interface: 4.1.0
+  permission_handler: 11.3.0
+  permission_handler_platform_interface: 4.2.0
   plugin_platform_interface: 2.1.8
   scrollable_positioned_list: 0.3.8
   shelf_easy: 3.5.1
-  url_launcher: 6.2.4
+  url_launcher: 6.2.5
   webrtc_interface: 1.1.2
-  webview_flutter: 4.4.4
+  webview_flutter: 4.7.0
   webview_flutter_platform_interface: 2.10.0
   zycloud_client: 1.2.0
 
