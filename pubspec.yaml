@@ -4,8 +4,8 @@ version: 1.3.4
 homepage: https://github.com/yangfanyu/zycloud_widget
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=3.10.0"
+  sdk: '>=3.0.0 <=3.2.6'
+  flutter: ">=3.10.0 <=3.16.9"
 
 dependencies:
   flutter:
@@ -86,7 +86,7 @@ dependencies:
   
   # -------- Below plugins full support [all] platforms, but pub.dev only show [ios, linux, macos, windows] platform--------  
   # common
-  flutter_quill: ^9.2.0
+  flutter_quill: 9.2.14
   archive: ^3.4.10
 
 dev_dependencies:

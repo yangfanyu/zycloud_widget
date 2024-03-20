@@ -249,6 +249,7 @@ class FlutterSlidableLibrary {
       'of': VmProxy(identifier: 'of', externalStaticPropertyReader: () => Slidable.of),
       'child': VmProxy(identifier: 'child', externalInstancePropertyReader: (Slidable instance) => instance.child),
       'closeOnScroll': VmProxy(identifier: 'closeOnScroll', externalInstancePropertyReader: (Slidable instance) => instance.closeOnScroll),
+      'controller': VmProxy(identifier: 'controller', externalInstancePropertyReader: (Slidable instance) => instance.controller),
       'createElement': VmProxy(identifier: 'createElement', externalInstancePropertyReader: (Slidable instance) => instance.createElement),
       'createState': VmProxy(identifier: 'createState', externalInstancePropertyReader: (Slidable instance) => instance.createState),
       'debugDescribeChildren': VmProxy(identifier: 'debugDescribeChildren', externalInstancePropertyReader: (Slidable instance) => instance.debugDescribeChildren),

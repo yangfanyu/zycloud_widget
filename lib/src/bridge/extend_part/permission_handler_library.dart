@@ -25,6 +25,7 @@ class PermissionHandlerLibrary {
       'appTrackingTransparency': VmProxy(identifier: 'appTrackingTransparency', externalStaticPropertyReader: () => Permission.appTrackingTransparency),
       'assistant': VmProxy(identifier: 'assistant', externalStaticPropertyReader: () => Permission.assistant),
       'audio': VmProxy(identifier: 'audio', externalStaticPropertyReader: () => Permission.audio),
+      'backgroundRefresh': VmProxy(identifier: 'backgroundRefresh', externalStaticPropertyReader: () => Permission.backgroundRefresh),
       'bluetooth': VmProxy(identifier: 'bluetooth', externalStaticPropertyReader: () => Permission.bluetooth),
       'bluetoothAdvertise': VmProxy(identifier: 'bluetoothAdvertise', externalStaticPropertyReader: () => Permission.bluetoothAdvertise),
       'bluetoothConnect': VmProxy(identifier: 'bluetoothConnect', externalStaticPropertyReader: () => Permission.bluetoothConnect),

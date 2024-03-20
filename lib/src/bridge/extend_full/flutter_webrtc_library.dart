@@ -295,6 +295,7 @@ class FlutterWebrtcLibrary {
       'audiooutputs': VmProxy(identifier: 'audiooutputs', externalStaticPropertyReader: () => Helper.audiooutputs),
       'cameras': VmProxy(identifier: 'cameras', externalStaticPropertyReader: () => Helper.cameras),
       'clearAndroidCommunicationDevice': VmProxy(identifier: 'clearAndroidCommunicationDevice', externalStaticPropertyReader: () => Helper.clearAndroidCommunicationDevice),
+      'ensureAudioSession': VmProxy(identifier: 'ensureAudioSession', externalStaticPropertyReader: () => Helper.ensureAudioSession),
       'enumerateDevices': VmProxy(identifier: 'enumerateDevices', externalStaticPropertyReader: () => Helper.enumerateDevices),
       'openCamera': VmProxy(identifier: 'openCamera', externalStaticPropertyReader: () => Helper.openCamera),
       'selectAudioInput': VmProxy(identifier: 'selectAudioInput', externalStaticPropertyReader: () => Helper.selectAudioInput),

@@ -77,6 +77,7 @@ void main(List<String> arguments) {
   final rootFolder = '${Directory.current.path}/lib/src';
   _initDependenciesVersion(); //初始化版本
   switch (libraryName) {
+    ///core
     case 'dart':
       _generateLibraryForCore$Dart(libraryName, rootFolder);
       break;
